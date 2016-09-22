@@ -35,20 +35,21 @@
 		<th>La</th>
 		<th>Su</th>
 	</tr>
-	<tr class=tunti><th><small>8-9</small></th></tr>
-	<tr class=tunti><th><small>9-10</small></th></tr>
-	<tr class=tunti><th><small>10-11</small></th></tr>
-	<tr class=tunti><th><small>11-12</small></th></tr>
-	<tr class=tunti><th><small>12-13</small></th></tr>
-	<tr class=tunti><th><small>14-15</small></th></tr>
-	<tr class=tunti><th><small>15-16</small></th></tr>
-	<tr class=tunti><th><small>16-17</small></th></tr>
-	<tr class=tunti><th><small>18-19</small></th></tr>
-	<tr class=tunti><th><small>19-20</small></th></tr>
-	<tr class=tunti><th><small>20-21</small></th></tr>
-	<tr class=tunti><th><small>21-22</small></th></tr>
-	<tr class=tunti><th><small>22-23</small></th></tr>
-	<tr class=tunti><th><small>23-00</small></th></tr>
+	<tr class=tunti><th><small>8:00</small></th></tr>
+	<tr class=tunti><th><small>9:00</small></th></tr>
+	<tr class=tunti><th><small>10:00</small></th></tr>
+	<tr class=tunti><th><small>11:00</small></th></tr>
+	<tr class=tunti><th><small>12:00</small></th></tr>
+	<tr class=tunti><th><small>13:00</small></th></tr>
+	<tr class=tunti><th><small>14:00</small></th></tr>
+	<tr class=tunti><th><small>15:00</small></th></tr>
+	<tr class=tunti><th><small>16:00</small></th></tr>
+	<tr class=tunti><th><small>18:00</small></th></tr>
+	<tr class=tunti><th><small>19:00</small></th></tr>
+	<tr class=tunti><th><small>20:00</small></th></tr>
+	<tr class=tunti><th><small>21:00</small></th></tr>
+	<tr class=tunti><th><small>22:00</small></th></tr>
+	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
 <script src="TESTIscript.js"></script>

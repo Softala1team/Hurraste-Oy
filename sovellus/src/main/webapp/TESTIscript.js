@@ -15,7 +15,7 @@ function teeKalenteri (){
 
 function teeTapahtumia(){
 	teeTapahtuma("58", "Pieni porukka jalkapalloa pelaamaan", "Tule kanssani pelaamaan jalkapalloa! \n\nOsallistujat: 0/2 " +
-			"\n\nMikko Mehilainen \n\nHiekkaharjun urheilukentta \n18:00-19:00");
+			"\n\nMikko Mehilainen \n\nHiekkaharjun urheilukentta \n16:00-17:00");
 	teeTapahtuma("32", "Joka torstai jalkapalloa!", "Pieni porukka kokoontuu pelaamaan jalkapalloa joka torstai ja etsimme muutamaa lisapelaajaa!" +
 			"\n\nOsallistujat: 0/4 \n\nJussi Juuhala \n\nKapylan kentta \n\n12:00-13:00 ");
 	teeTapahtuma("20", "Jalkapallo klub", "Jalkapallo klub kokoontuu lauantaisin, tule sinakin rohkeasti mukaan! \n\nOsallistujat: 0/10" +

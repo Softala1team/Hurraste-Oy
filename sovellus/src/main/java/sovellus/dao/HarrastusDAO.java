@@ -36,7 +36,7 @@ public class HarrastusDAO implements HarrastusDAOInterface {
 
 	public Harrastus haeTietty(int tapahtumaId) {
 
-		String sql = "select * from henkilo where tapahtuma_id = ?";
+		String sql = "select * from TAPAHTUMA where tapahtuma_id = ?";
 		
 		Object[] parametrit = new Object[] { tapahtumaId };
 		RowMapper<Harrastus> mappaaja = new HarrastusRowMapper();

@@ -10,7 +10,7 @@ public interface HarrastusDAOInterface {
 	
 	public abstract Harrastus haeTietty(int tapahtumaId);
 	
-	public abstract int lisaaTapahtuma(Harrastus h);
+	public abstract void lisaaTapahtuma(Harrastus h);
 	
 	public abstract void poistaTapahtuma(Harrastus h);
 

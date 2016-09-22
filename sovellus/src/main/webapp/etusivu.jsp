@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Etusivu</title>
 <link rel="stylesheet" type="text/css" href="styles/style.css">
+<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 </head>
 <body>

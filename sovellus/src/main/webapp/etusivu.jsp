@@ -8,12 +8,13 @@
 
 </head>
 <body>
+<div id="header">
+<h1>HÄRRÄSTE-O-MATIC</h1>
+<h3>Harrasta tääl wohoo kivaa</h3>
+</div>
 
-<h1>HÄRRÄSTE OY OPISKELIJOIDEN AKTIVITEETTEJA</h1>
 
 <div id="contentbox">
-
-<h2>AKTIVITEETIT</h2>
 
 <table>
 	<tr>

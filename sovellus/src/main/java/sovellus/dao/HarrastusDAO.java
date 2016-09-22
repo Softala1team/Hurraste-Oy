@@ -47,7 +47,7 @@ public class HarrastusDAO implements HarrastusDAOInterface {
 		return h;
 	}
 
-	public int lisaaTapahtuma(Harrastus h) {
+	public void lisaaTapahtuma(Harrastus h) {
 		
 		String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, kuvaus, tapahtuma_paikka, aktiivi_id)"
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -57,7 +57,6 @@ public class HarrastusDAO implements HarrastusDAOInterface {
 		
 		jdbcTemplate.update(sql, parametrit);
 
-		return 0;
 	}
 
 	public void poistaTapahtuma(Harrastus h) {

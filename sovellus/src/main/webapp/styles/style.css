@@ -1,11 +1,13 @@
 body {
-	background-image: url("../images/wall.png");
+	background-image: url("../images/wall2.jpg");
 	width:100%;
 	height:100%;
 }
 
 h1{
 	text-align: center;
+	font-size: 60px;
+	font-family: 'Yatra One', cursive;
 }
 
 h2 {

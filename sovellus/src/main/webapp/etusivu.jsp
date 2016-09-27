@@ -3,13 +3,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Etusivu</title>
-<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/frontpage.css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 </head>
 <body>
 <div id="header">
-<h1>HÄRRÄSTE-O-MATIC</h1>
+<h1>HÄRRÄSTE-OY</h1>
 <h3>Harrasta tääl wohoo kivaa</h3>
 </div>
 

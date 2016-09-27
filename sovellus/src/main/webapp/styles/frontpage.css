@@ -1,0 +1,90 @@
+body {
+	/*background-image: url("../images/wall2.jpg");*/
+	width:100%;
+	height:100%;
+}
+
+#header {
+	padding: 70px;
+	width: 92%;
+	
+	background-image: url("../images/sky1.png");
+	background-repeat: repeat-x;
+}
+
+h1{
+	text-align: center;
+	font-size: 90px;
+	font-family: 'Yatra One', cursive;
+	color: white;
+	font-weight: bolder;
+	text-shadow: 4px 4px black;
+}
+
+h2 {
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Yatra One', cursive;
+	color: white;
+	font-weight: bolder;
+	text-shadow: 4px 4px black;
+}
+
+h3 {
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Yatra One', cursive;
+	color: white;
+	font-weight: bolder;
+	text-shadow: 2px 2px black;
+}
+
+#contentbox {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	
+	width: 50%;	
+	
+	margin-left: 23%;
+	
+}
+
+table {
+/* 	margin-left: 20%; */
+	width: 99%;
+	font-size: 25px;
+	font-color: black;
+	border: 1px solid;
+	align:center;
+}
+
+#lisaa_oma {
+	align: center;
+	margin-left: 45%;
+}
+
+tr {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	position:relative;
+}
+
+th {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	
+	border-color: black;
+	border-width: 2px;
+	border-style: dashed;
+}
+
+td {
+	height:100%;
+	
+}

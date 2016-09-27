@@ -1,5 +1,7 @@
 package sovellus.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -64,6 +66,15 @@ public class Kontrolleri {
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
 	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
 		
+		
+		return "jalkapallo";
+	}
+	
+	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
+	public String haeKaikki(Model model) {
+		
+		List <Harrastus>harrasteet = hd.haeKaikki();
+		model.addAttribute("harrasteet", harrasteet);
 		
 		return "jalkapallo";
 	}

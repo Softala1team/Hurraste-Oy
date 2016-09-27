@@ -9,8 +9,8 @@
 </head>
 <body>
 <div id="header">
-<h1>HÄRRÄSTE-OY</h1>
-<h3>Harrasta tääl wohoo kivaa</h3>
+<h1>HARRASTEMAATTI</h1>
+<h3>Löydä kaikenlaista tekemistä!</h3>
 </div>
 
 

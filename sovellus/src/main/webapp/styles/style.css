@@ -22,12 +22,15 @@ h1{
 }
 
 h2 {
-	font-size: 40px;
+	font-size: 60px;
 	text-align: center;
 	font-family: 'Yatra One', cursive;
 	color: white;
 	font-weight: bolder;
 	text-shadow: 4px 4px black;
+
+		
+	
 }
 
 h3 {
@@ -44,7 +47,7 @@ h3 {
 	padding-right: 25px;
 	padding-top: 5px;
 	padding-bottom: 15px;
-	
+
 	border-color: #333333;
 	border-width: 1px;
 	border-style: dashed;
@@ -82,15 +85,76 @@ th {
 	padding-bottom: 20px;
 	margin-right: 10px;
 	margin-bottom: 15px;
-	
-	border-color: black;
-	border-width: 2px;
-	border-style: dashed;
 }
 
 td {
 	height:100%;
 	
+}
+
+.dropbtn {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 20px;
+    font-size: 16px;
+    border: solid;
+    border-color: #006f93;
+    cursor: pointer;
+    font-family: 'Yatra One', cursive;
+    font-variant:small-caps; 
+  
+  	
+}
+
+.navdrop {
+    position: relative;
+    display: inline-block;
+   
+}
+
+.navdrop-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+ 
+    
+    border: solid;
+    border-color: #006f93;
+    font-family: 'Yatra One', cursive;
+    font-variant:small-caps; 
+}
+
+.navdrop-content a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.navdrop-content a:hover {
+	background-color: grey;
+	}
+	
+.navdrop-content a.active {
+	background-color: #006f93;
+	color: white;
+}	
+
+.navdrop:hover .navdrop-content {
+    display: block;
+}
+
+.navdrop:hover .dropbtn {
+    background-color: #006f93;
+    font-variant:small-caps; 
+    color: white;
+}
+
+.kalenteri {
+	padding-right: 180px;
 }
 
 

@@ -11,16 +11,20 @@
 <body onload="teeKalenteri()">
 
 <div id=header>
-<h2>Kalenteri</h2>
-<nav class="navigaatio">
-<ul class="paavalikko">
-	<li><a href="etusivu.jsp">Etusivu</a></li>
-	<li><a href="jalkapallo.jsp">Jalkapallo</a></li>
-	<li><a href="kutominen.jsp">Kutominen</a></li>
-	<li><a href="ruoanlaitto.jsp">Ruoanlaitto</a></li>
-	<li><a href="salibandy.jsp">Salibandy</a></li>
-</ul>
-</nav>
+
+<div class="navdrop">
+<button class="dropbtn">Muut aktiviteetit</button>
+<div class="navdrop-content" style="left:0;">
+	<a href="etusivu.jsp">Etusivu</a>
+	<a href="jalkapallo.jsp">Jalkapallo</a>
+	<a href="kutominen.jsp">Kutominen</a>
+	<a href="ruoanlaitto.jsp">Ruoanlaitto</a>
+	<a class="active" href="salibandy.jsp">Salibandy</a>
+</div>
+</div>
+<div id="otsikko">
+<h2>Salibandy</h2>
+</div>
 </div>
 
 <div id="kalenteri">

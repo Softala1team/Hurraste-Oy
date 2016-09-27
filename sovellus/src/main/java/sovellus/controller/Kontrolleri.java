@@ -48,6 +48,24 @@ public class Kontrolleri {
 	//------------------------------
 	
 	//Luontikoodit jalkapallolle
+	@RequestMapping(value="", method=RequestMethod.POST)
+	public String luoHarrastusLomake(Model model){
+		
+		Harrastus dummy = new Harrastus();
+		model.addAttribute("tyhja_harrastus", dummy);
+		
+		return "luo_Harraste";
+	}
+	@RequestMapping(value="", method=RequestMethod.POST)
+	public String luoIlmoitusLomake(Model model){
+		
+		Aktiviteetti dummy = new Aktiviteetti();
+		model.addAttribute("tyhja_aktiviteetti", dummy);
+		
+		return "luo_Ilmoitus";
+	}
+	
+	//Vastaanota harrastuksen / aktiviteetin tiedot
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public void luoHarrastus(@ModelAttribute(value="harrastus") Harrastus harraste){	

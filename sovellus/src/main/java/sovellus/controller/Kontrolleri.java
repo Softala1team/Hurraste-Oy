@@ -47,6 +47,19 @@ public class Kontrolleri {
 	
 	//------------------------------
 	
+	//------------------------------
+		//Variaabeleita
+		//------------------------------
+		private static final String VIEW_INDEX = "index";
+		
+		@RequestMapping(value="/", method=RequestMethod.GET)
+		public String Tervetuloa(Model model){
+			
+			model.addAttribute("viesti", "Tervetuloa!");
+			
+			return VIEW_INDEX;
+		}
+	
 	//Luontikoodit jalkapallolle
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String luoHarrastusLomake(Model model){

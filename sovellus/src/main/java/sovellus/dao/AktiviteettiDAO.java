@@ -26,7 +26,7 @@ public class AktiviteettiDAO implements AktiviteettiDAOInterface {
 	//---------------------------------------------
 	
 	
-	@Override
+
 	public List<Aktiviteetti> haeKaikki() {
 		
 		String sql = "select * from AKTIVITEETTI";
@@ -36,7 +36,7 @@ public class AktiviteettiDAO implements AktiviteettiDAOInterface {
 		return aktiviteetit;
 	}
 
-	@Override
+
 	public Aktiviteetti haeTietty(int aktiivi_id) {
 		
 		String sql = "select * from AKTIVITEETTI where aktiivi_id = ?";
@@ -50,7 +50,7 @@ public class AktiviteettiDAO implements AktiviteettiDAOInterface {
 		return a;
 	}
 
-	@Override
+
 	public void lisaaAktiviteetti(Aktiviteetti a) {
 		
 		String sql="insert into AKTIVITEETTI(aktiivi_id, aktiivi_nimi) values (?, ?)";
@@ -60,7 +60,7 @@ public class AktiviteettiDAO implements AktiviteettiDAOInterface {
 		jdbcTemplate.update(sql, parametrit);
 	}
 
-	@Override
+
 	public void poistaAktiviteetti(Aktiviteetti a) {
 		
 		int pois = a.getAktiiviId();

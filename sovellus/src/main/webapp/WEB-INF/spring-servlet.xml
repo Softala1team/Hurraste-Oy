@@ -8,7 +8,7 @@
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 
-	<context:component-scan base-package="fi.softala.jee.demo.d14" />
+	<context:component-scan base-package="sovellus" />
 
 	<!-- Resolves view names to protected .jsp resources within the /WEB-INF/views 
 		directory -->
@@ -26,6 +26,6 @@
 		<mvc:view-controller path="/WEB-INF/nakymat" view-name="index" />
 	
 	<!-- location of static content (images, js and css files) -->
-	<!-- 	<mvc:resources mapping="/resources/**" location="/resources/" /> -->
+		<mvc:resources mapping="/resources/**" location="/resources/" />
 
 </beans>

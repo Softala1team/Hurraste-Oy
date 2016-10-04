@@ -16,15 +16,26 @@
 
 <div id="contentbox">
 
-<table>
-	<tr>
-		<th><a id=jalka href=jalkapallo.jsp>Jalkapallo</a></th> <th><a id=sali href=salibandy.jsp>Salibandy</a></th>
-	</tr>
-	<tr>
-		<th><a id=kuto href=kutominen.jsp>Kutominen</a></th><th><a id=ruoan href=ruoanlaitto.jsp>Ruoanlaitto</a></th>
-	</tr>
-</table>
 
+
+</div>
+<br>
+<div id="buttonbox">
+<div class="pallobutton">
+<div id="palloA">
+		<a href=jalkapallo.jsp class="pallobutton">Jalkapallo</a>
+</div>
+<div id="palloB">
+		<a href=kutominen.jsp class="pallobutton">Kutominen</a>
+</div>
+<br>
+<div id="palloC">
+		<a href=salibandy.jsp class="pallobutton">Salibandy</a>
+</div>
+<div id="palloD">
+		<a href=ruoanlaitto.jsp class="pallobutton">Ruoanlaitto</a>
+</div>
+</div>
 </div>
 <br>
 <form action="https://goo.gl/forms/vYOYW7IjdWpRHmsi1">

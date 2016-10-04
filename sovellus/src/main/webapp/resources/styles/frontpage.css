@@ -10,6 +10,7 @@ body {
 	
 	background-image: url("../images/sky1.png");
 	background-repeat: repeat-x;
+	
 }
 
 h1{
@@ -85,3 +86,97 @@ td {
 	height:100%;
 	
 }
+
+#buttonbox {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	
+	width: 100%;	
+	
+	margin-left: 23%;
+}
+
+#pallobutton {
+	width: 25%;
+}
+
+#palloA {
+	width: 350px;
+	height: 150px;
+	padding-bottom: 10%;
+	border-radius: 50%;
+	overflow: hidden;
+	float: left;
+	margin-right: 200px;
+	
+	background-image: url("../images/ball.png");
+	box-shadow: 5px 5px 5px gray;
+}
+
+#palloB {
+	width: 350px;
+	height: 150px;
+	padding-bottom: 10%;
+	border-radius: 50%;
+	overflow: hidden;
+	
+	background-image: url("../images/ball.png");
+	box-shadow: 5px 5px 5px gray;
+}
+
+#palloC {
+	width: 350px;
+	height: 150px;
+	padding-bottom: 10%;
+	border-radius: 50%;
+	overflow: hidden;
+	float: left;
+	margin-right: 200px;
+	
+	background-image: url("../images/ball.png");
+	box-shadow: 5px 5px 5px gray;
+}
+
+#palloD {
+	width: 350px;
+	height: 150px;
+	padding-bottom: 10%;
+	border-radius: 50%;
+	overflow: hidden;
+	
+	background-image: url("../images/ball.png");
+	box-shadow: 5px 5px 5px gray;
+}
+
+.pallobutton a {
+	display: block;
+	float: left;
+	width: 100%;
+	padding-top: 50%;
+	padding-bottom: 50%;
+	line-height: 1em;
+	margin-top: -0.5em;
+	
+	text-align: center;
+	color: white;
+	font-family: 'Yatra One', cursive;
+	font-size: 50px;
+	text-decoration: none;
+}
+
+/*#pallo {
+	background-image: url("../images/ball.png");
+	border-radius: 50%;
+	margin-right: 2%;
+	box-shadow: 5px 5px 5px gray;
+	border: solid 1px white;
+	height: 175px;
+	width: 350px;
+	text-align: center;
+	padding-top: 80px;
+	font-family: 'Yatra One', cursive;
+	font-size: 50px;
+	color: white;
+}*/

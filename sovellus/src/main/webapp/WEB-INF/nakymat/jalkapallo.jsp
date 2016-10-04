@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link href="resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 <title>Jalkapallokalenteri</title>
@@ -57,6 +57,6 @@
 	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
-<script src="resources/scripts.js"></script>
+<script src="../resources/scripts.js"></script>
 </body>
 </html>

@@ -15,6 +15,14 @@
 
 <div id="contentbox">
 
+<table>
+	<tr>
+		<th><a id=jalka href=sovellus/jalkapallo>Jalkapallo</a></th> <th><a id=sali href=salibandy.jsp>Salibandy</a></th>
+	</tr>
+	<tr>
+		<th><a id=kuto href=kutominen.jsp>Kutominen</a></th><th><a id=ruoan href=ruoanlaitto.jsp>Ruoanlaitto</a></th>
+	</tr>
+</table>
 
 </div>
 <br>

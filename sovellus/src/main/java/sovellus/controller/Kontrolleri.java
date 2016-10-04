@@ -50,7 +50,9 @@ public class Kontrolleri {
 	//------------------------------
 		//Variaabeleita
 		//------------------------------
-		private static final String VIEW_INDEX = "index";
+		
+	/*
+	private static final String VIEW_INDEX = "index";
 		
 		@RequestMapping(value="/index", method=RequestMethod.GET)
 		public String Tervetuloa(Model model){
@@ -59,6 +61,7 @@ public class Kontrolleri {
 			
 			return VIEW_INDEX;
 		}
+	*/
 	
 	//Luontikoodit jalkapallolle
 	/*@RequestMapping(value="", method=RequestMethod.POST)

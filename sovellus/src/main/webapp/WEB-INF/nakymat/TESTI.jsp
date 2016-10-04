@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -26,7 +27,7 @@
 <table style="width:85%;margin:auto;">
 	
 	<tr>
-		<th id=tyhja></th>
+		<th id=tyhja><c:out value="${harraste.tapahtuma_nimi}"></c:out></th>
 		<th>Ma</th>
 		<th>Ti</th>
 		<th>Ke</th>
@@ -52,6 +53,6 @@
 	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
-<script src="TESTIscript.js"></script>
+<script> console.log(${harraste.tapahtuma_nimi}); </script>
 </body>
 </html>

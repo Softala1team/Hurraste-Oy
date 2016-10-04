@@ -28,34 +28,35 @@
 </div>
 
 <div id="kalenteri">
-<table style="width:100%;height:100%;">
+<table style="width:85%;margin:auto;">
 	
 	<tr>
 		<th id=tyhja></th>
-		<th>Maanantai</th>
-		<th>Tiistai</th>
-		<th>Keskiviikko</th>
-		<th>Torstai</th>
-		<th>Perjantai</th>
-		<th>Lauantai</th>
-		<th>Sunnuntai</th>
+		<th>Ma</th>
+		<th>Ti</th>
+		<th>Ke</th>
+		<th>To</th>
+		<th>Pe</th>
+		<th>La</th>
+		<th>Su</th>
 	</tr>
-	<tr class=tunti><th>8-9</th></tr>
-	<tr class=tunti><th>9-10</th></tr>
-	<tr class=tunti><th>10-11</th></tr>
-	<tr class=tunti><th>11-12</th></tr>
-	<tr class=tunti><th>12-13</th></tr>
-	<tr class=tunti><th>14-15</th></tr>
-	<tr class=tunti><th>15-16</th></tr>
-	<tr class=tunti><th>16-17</th></tr>
-	<tr class=tunti><th>18-19</th></tr>
-	<tr class=tunti><th>19-20</th></tr>
-	<tr class=tunti><th>20-21</th></tr>
-	<tr class=tunti><th>21-22</th></tr>
-	<tr class=tunti><th>22-23</th></tr>
-	<tr class=tunti><th>23-00</th></tr>
+	<tr class=tunti><th><small>8:00</small></th></tr>
+	<tr class=tunti><th><small>9:00</small></th></tr>
+	<tr class=tunti><th><small>10:00</small></th></tr>
+	<tr class=tunti><th><small>11:00</small></th></tr>
+	<tr class=tunti><th><small>12:00</small></th></tr>
+	<tr class=tunti><th><small>13:00</small></th></tr>
+	<tr class=tunti><th><small>14:00</small></th></tr>
+	<tr class=tunti><th><small>15:00</small></th></tr>
+	<tr class=tunti><th><small>16:00</small></th></tr>
+	<tr class=tunti><th><small>18:00</small></th></tr>
+	<tr class=tunti><th><small>19:00</small></th></tr>
+	<tr class=tunti><th><small>20:00</small></th></tr>
+	<tr class=tunti><th><small>21:00</small></th></tr>
+	<tr class=tunti><th><small>22:00</small></th></tr>
+	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
-<script src="scripts.js"></script>
+<script src="resources/scripts.js"></script>
 </body>
 </html>

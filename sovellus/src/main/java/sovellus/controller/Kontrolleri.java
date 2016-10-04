@@ -50,7 +50,9 @@ public class Kontrolleri {
 	//------------------------------
 		//Variaabeleita
 		//------------------------------
-		private static final String VIEW_INDEX = "index";
+		
+	/*
+	private static final String VIEW_INDEX = "index";
 		
 		@RequestMapping(value="/index", method=RequestMethod.GET)
 		public String Tervetuloa(Model model){
@@ -59,6 +61,7 @@ public class Kontrolleri {
 			
 			return VIEW_INDEX;
 		}
+	*/
 	
 	//Luontikoodit jalkapallolle
 	/*@RequestMapping(value="", method=RequestMethod.POST)
@@ -106,6 +109,10 @@ public class Kontrolleri {
 		
 		List <Harrastus>harrasteet = hd.haeKaikki();
 		model.addAttribute("harrasteet", harrasteet);
+		
+		System.out.println("||-------------------------------||");
+		System.out.println("Kontrollerin listasta: "+harrasteet.get(0).getTapahtuma_nimi());
+		System.out.println("||-------------------------------||");
 		
 		return "jalkapallo";
 	}

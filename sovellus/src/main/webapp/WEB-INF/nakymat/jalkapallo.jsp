@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link href="styles/style.css" rel="stylesheet" type="text/css">
+<link href="resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 <title>Jalkapallokalenteri</title>

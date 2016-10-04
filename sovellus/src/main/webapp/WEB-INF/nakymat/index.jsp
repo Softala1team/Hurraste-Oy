@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Etusivu</title>
-<link rel="stylesheet" type="text/css" href="styles/frontpage.css">
+<link rel="stylesheet" type="text/css" href="resources/styles/frontpage.css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 </head>
@@ -18,7 +18,7 @@
 
 <table>
 	<tr>
-		<th><a id=jalka href=jalkapallo.jsp>Jalkapallo</a></th> <th><a id=sali href=salibandy.jsp>Salibandy</a></th>
+		<th><a id=jalka href=sovellus/jalkapallo>Jalkapallo</a></th> <th><a id=sali href=salibandy.jsp>Salibandy</a></th>
 	</tr>
 	<tr>
 		<th><a id=kuto href=kutominen.jsp>Kutominen</a></th><th><a id=ruoan href=ruoanlaitto.jsp>Ruoanlaitto</a></th>

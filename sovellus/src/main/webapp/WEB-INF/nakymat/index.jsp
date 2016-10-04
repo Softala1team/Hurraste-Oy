@@ -13,10 +13,7 @@
 <h3>Löydä kaikenlaista tekemistä!</h3>
 </div>
 
-
 <div id="contentbox">
-
-
 
 </div>
 <br>

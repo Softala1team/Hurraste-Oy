@@ -13,6 +13,10 @@
     	<property name="JdbcTemplate" ref="JdbcTemplate"/>
     </bean>
     
+    <bean id="AktiviteettiDAO" class="sovellus.dao.AktiviteettiDAO">
+    	<property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
     <bean id="data" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     	<property name="driverClassName" value="${db.driver}"/>
     	<property name="url" value="${db.url}"/>
@@ -24,7 +28,7 @@
     </bean>
     
     <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-    	<property name="dao" ref="dao"/>
+    	<property name="data" ref="data"/>
     </bean>
         
 </beans>

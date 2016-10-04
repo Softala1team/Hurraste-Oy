@@ -14,7 +14,6 @@ public class HarrastusDAO implements HarrastusDAOInterface {
 	JdbcTemplate jdbcTemplate = new JdbcTemplate();
 	
 	
-	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}

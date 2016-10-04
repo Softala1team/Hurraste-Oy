@@ -10,7 +10,7 @@ import sovellus.bean.Harrastus;
 
 public class AktiviteettiRowMapper implements RowMapper<Aktiviteetti>{
 
-	@Override
+
 	public Aktiviteetti mapRow(ResultSet rs, int rowNumber) throws SQLException {
 		//Alustetaan aktiviteetti...
 				Aktiviteetti a = new Aktiviteetti();

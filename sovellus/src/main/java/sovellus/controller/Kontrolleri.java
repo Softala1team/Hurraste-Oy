@@ -17,7 +17,7 @@ import sovellus.dao.AktiviteettiDAO;
 import sovellus.dao.HarrastusDAO;
 
 @Controller
-@RequestMapping (value="/hurraste")
+@RequestMapping (value="/sovellus")
 public class Kontrolleri {
 	
 	//Injektoidaan AktiviteettiDAO
@@ -47,16 +47,29 @@ public class Kontrolleri {
 	
 	//------------------------------
 	
+	//------------------------------
+		//Variaabeleita
+		//------------------------------
+		private static final String VIEW_INDEX = "index";
+		
+		@RequestMapping(value="/index", method=RequestMethod.GET)
+		public String Tervetuloa(Model model){
+			
+			model.addAttribute("viesti", "Tervetuloa!");
+			
+			return VIEW_INDEX;
+		}
+	
 	//Luontikoodit jalkapallolle
-	@RequestMapping(value="", method=RequestMethod.POST)
+	/*@RequestMapping(value="", method=RequestMethod.POST)
 	public String luoHarrastusLomake(Model model){
 		
 		Harrastus dummy = new Harrastus();
 		model.addAttribute("tyhja_harrastus", dummy);
 		
 		return "luo_Harraste";
-	}
-	@RequestMapping(value="", method=RequestMethod.POST)
+	}*/
+	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
 	public String luoIlmoitusLomake(Model model){
 		
 		Aktiviteetti dummy = new Aktiviteetti();
@@ -66,14 +79,14 @@ public class Kontrolleri {
 	}
 	
 	//Vastaanota harrastuksen / aktiviteetin tiedot
-	
+	/*
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public void luoHarrastus(@ModelAttribute(value="harrastus") Harrastus harraste){	
 	
 	
-	}
+	}*/
 	
-	@RequestMapping(value="", method=RequestMethod.POST)
+	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
 	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") Aktiviteetti aktiviteetti){
 		
 		

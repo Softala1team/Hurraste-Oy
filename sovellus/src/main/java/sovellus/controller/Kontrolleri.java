@@ -110,6 +110,10 @@ public class Kontrolleri {
 		List <Harrastus>harrasteet = hd.haeKaikki();
 		model.addAttribute("harrasteet", harrasteet);
 		
+		System.out.println("||-------------------------------||");
+		System.out.println("Kontrollerin listasta: "+harrasteet.get(0).getTapahtuma_nimi());
+		System.out.println("||-------------------------------||");
+		
 		return "jalkapallo";
 	}
 	

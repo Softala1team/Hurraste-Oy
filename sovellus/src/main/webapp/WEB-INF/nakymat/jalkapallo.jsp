@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +19,8 @@
 <div class="navdrop">
 <button class="dropbtn">Muut aktiviteetit</button>
 <div class="navdrop-content" style="left:0;">
-	<a href="etusivu.jsp">Etusivu</a>
-	<a class="active" href="jalkapallo.jsp">Jalkapallo</a>
+	<a href="/sovellus">Etusivu</a>
+	<a class="active" href="/jalkapallo">Jalkapallo</a>
 	<a href="kutominen.jsp">Kutominen</a>
 	<a href="ruoanlaitto.jsp">Ruoanlaitto</a>
 	<a href="salibandy.jsp">Salibandy</a>
@@ -31,7 +35,7 @@
 <table style="width:85%;margin:auto;">
 	
 	<tr>
-		<th id=tyhja></th>
+		<th id=tyhja><c:out value="${harraste.tapahtuma_nimi}"></c:out></th>
 		<th>Ma</th>
 		<th>Ti</th>
 		<th>Ke</th>
@@ -57,6 +61,7 @@
 	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
-<script src="../resources/scripts.js"></script>
+<script src="../resources/script.js"></script>
+<!-- <script> console.log(${harraste.tapahtuma_nimi}); </script> -->
 </body>
 </html>

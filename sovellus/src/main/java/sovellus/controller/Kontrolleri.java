@@ -17,7 +17,7 @@ import sovellus.dao.AktiviteettiDAO;
 import sovellus.dao.HarrastusDAO;
 
 @Controller
-@RequestMapping (value="/hurraste")
+@RequestMapping (value="/sovellus")
 public class Kontrolleri {
 	
 	//Injektoidaan AktiviteettiDAO
@@ -52,7 +52,7 @@ public class Kontrolleri {
 		//------------------------------
 		private static final String VIEW_INDEX = "index";
 		
-		@RequestMapping(value="/", method=RequestMethod.GET)
+		@RequestMapping(value="/index", method=RequestMethod.GET)
 		public String Tervetuloa(Model model){
 			
 			model.addAttribute("viesti", "Tervetuloa!");
@@ -69,7 +69,7 @@ public class Kontrolleri {
 		
 		return "luo_Harraste";
 	}*/
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
 	public String luoIlmoitusLomake(Model model){
 		
 		Aktiviteetti dummy = new Aktiviteetti();
@@ -86,7 +86,7 @@ public class Kontrolleri {
 	
 	}*/
 	
-	@RequestMapping(value="", method=RequestMethod.POST)
+	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
 	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") Aktiviteetti aktiviteetti){
 		
 		

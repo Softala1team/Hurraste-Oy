@@ -13,7 +13,6 @@
 <h3>Löydä kaikenlaista tekemistä!</h3>
 </div>
 
-
 <div id="contentbox">
 
 <table>
@@ -25,6 +24,24 @@
 	</tr>
 </table>
 
+</div>
+<br>
+<div id="buttonbox">
+<div class="pallobutton">
+<div id="palloA">
+		<a href=jalkapallo.jsp class="pallobutton">Jalkapallo</a>
+</div>
+<div id="palloB">
+		<a href=kutominen.jsp class="pallobutton">Kutominen</a>
+</div>
+<br>
+<div id="palloC">
+		<a href=salibandy.jsp class="pallobutton">Salibandy</a>
+</div>
+<div id="palloD">
+		<a href=ruoanlaitto.jsp class="pallobutton">Ruoanlaitto</a>
+</div>
+</div>
 </div>
 <br>
 <form action="https://goo.gl/forms/vYOYW7IjdWpRHmsi1">

@@ -20,7 +20,7 @@
 
 
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven />
+		<!-- <mvc:annotation-driven /> -->
 
 <!-- 	Forwards requests to the "/" resource to the "welcome" view -->
 		<mvc:view-controller path="/WEB-INF/nakymat" view-name="index" />

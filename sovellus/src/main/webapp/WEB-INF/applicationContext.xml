@@ -11,7 +11,11 @@
 	<context:property-placeholder location="classpath*:/db_connection.properties" />
 	
 	<bean id="HarrastusDAO" class="sovellus.dao.HarrastusDAO">
-    	<property name="JdbcTemplate" ref="JdbcTemplate"/>
+    	<property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="AktiviteettiDAO" class="sovellus.dao.AktiviteettiDAO">
+    	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -23,7 +27,7 @@
 	</bean>
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-			<property name="HarrastusDAO" ref="HarrastusDAO"/>
+			<property name="dataSource" ref="dataSource"/>
 	</bean>
 
 

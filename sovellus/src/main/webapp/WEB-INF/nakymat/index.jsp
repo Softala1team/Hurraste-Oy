@@ -14,7 +14,7 @@
 </div>
 
 <div id="contentbox">
-
+ <!-- 
 <table>
 	<tr>
 		<th><a id=jalka href=sovellus/jalkapallo>Jalkapallo</a></th> <th><a id=sali href=salibandy.jsp>Salibandy</a></th>
@@ -23,23 +23,23 @@
 		<th><a id=kuto href=kutominen.jsp>Kutominen</a></th><th><a id=ruoan href=ruoanlaitto.jsp>Ruoanlaitto</a></th>
 	</tr>
 </table>
-
+ -->
 </div>
 <br>
 <div id="buttonbox">
 <div class="pallobutton">
 <div id="palloA">
-		<a href=jalkapallo.jsp class="pallobutton">Jalkapallo</a>
+		<a href=sovellus/jalkapallo class="pallobutton">Jalkapallo</a>
 </div>
 <div id="palloB">
-		<a href=kutominen.jsp class="pallobutton">Kutominen</a>
+		<a href=sovellus/kutominen class="pallobutton">Kutominen</a>
 </div>
 <br>
 <div id="palloC">
-		<a href=salibandy.jsp class="pallobutton">Salibandy</a>
+		<a href=sovellus/salibandy class="pallobutton">Salibandy</a>
 </div>
 <div id="palloD">
-		<a href=ruoanlaitto.jsp class="pallobutton">Ruoanlaitto</a>
+		<a href=sovellus/ruoanlaitto class="pallobutton">Ruoanlaitto</a>
 </div>
 </div>
 </div>

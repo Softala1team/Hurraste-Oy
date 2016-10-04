@@ -7,6 +7,7 @@ body {
 #header {
 	padding: 70px;
 	width: 92%;
+	margin-bottom: 25px;
 	
 	background-image: url("../images/sky1.png");
 	background-repeat: repeat-x;
@@ -28,9 +29,6 @@ h2 {
 	color: white;
 	font-weight: bolder;
 	text-shadow: 4px 4px black;
-
-		
-	
 }
 
 h3 {

@@ -7,6 +7,7 @@ function teeKalenteri (){
 			id++;
 			ids=id.toString();
 			elements[i].innerHTML += '<td><ul class="mainmenu"><li><a id="'+ids+'"></a><ul class="submenu" id="'+ids+'linkki"><li><a href="https://goo.gl/forms/vYOYW7IjdWpRHmsi1"><small>Luo tapahtuma</small></a></li></ul></li></ul></td>';
+		
 		}
 	}
 	//tee testi tapahtumia

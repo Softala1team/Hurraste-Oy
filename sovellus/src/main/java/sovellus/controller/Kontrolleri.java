@@ -1,5 +1,6 @@
 package sovellus.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -107,8 +108,19 @@ public class Kontrolleri {
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		
+		ArrayList<Integer> ajat = new ArrayList<Integer>();
+		
+		for(int i=0;i<15;i++){
+			
+			int aika=8;
+			ajat.add(aika);
+			aika++;
+			
+		}
+		
 		List <Harrastus>harrasteet = hd.haeKaikki();
 		model.addAttribute("harrasteet", harrasteet);
+		model.addAttribute("ajat", ajat);
 		
 		System.out.println("||-------------------------------||");
 		System.out.println("Kontrollerin listasta: "+harrasteet.get(0).getTapahtuma_nimi());

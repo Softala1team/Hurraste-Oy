@@ -2,11 +2,14 @@ body {
 	/*background-image: url("../images/wall2.jpg");*/
 	width:100%;
 	height:100%;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
 }
 
 #header {
 	padding: 70px;
-	width: 92%;
+	width: 100%;
 	
 	background-image: url("../images/sky1.png");
 	background-repeat: repeat-x;
@@ -20,15 +23,19 @@ h1{
 	color: white;
 	font-weight: bolder;
 	text-shadow: 4px 4px black;
+	
+	margin-right: 100px;
 }
 
 h2 {
-	font-size: 40px;
+	font-size: 60px;
 	text-align: center;
 	font-family: 'Yatra One', cursive;
 	color: white;
 	font-weight: bolder;
 	text-shadow: 4px 4px black;
+	
+	
 }
 
 h3 {
@@ -38,6 +45,8 @@ h3 {
 	color: white;
 	font-weight: bolder;
 	text-shadow: 2px 2px black;
+	
+	margin-right: 100px;
 }
 
 #contentbox {
@@ -109,9 +118,10 @@ td {
 	border-radius: 50%;
 	overflow: hidden;
 	float: left;
-	margin-right: 200px;
+	margin-right: 250px;
+	margin-bottom: 10px;
 	
-	background-image: url("../images/ball.png");
+	background-image: url("../images/football.png");
 	box-shadow: 5px 5px 5px gray;
 }
 
@@ -121,8 +131,9 @@ td {
 	padding-bottom: 10%;
 	border-radius: 50%;
 	overflow: hidden;
+	margin-bottom: 10px;
 	
-	background-image: url("../images/ball.png");
+	background-image: url("../images/knitting.png");
 	box-shadow: 5px 5px 5px gray;
 }
 
@@ -133,9 +144,9 @@ td {
 	border-radius: 50%;
 	overflow: hidden;
 	float: left;
-	margin-right: 200px;
+	margin-right: 250px;
 	
-	background-image: url("../images/ball.png");
+	background-image: url("../images/salibandy.png");
 	box-shadow: 5px 5px 5px gray;
 }
 
@@ -146,7 +157,7 @@ td {
 	border-radius: 50%;
 	overflow: hidden;
 	
-	background-image: url("../images/ball.png");
+	background-image: url("../images/cooking.png");
 	box-shadow: 5px 5px 5px gray;
 }
 
@@ -160,7 +171,7 @@ td {
 	margin-top: -0.5em;
 	
 	text-align: center;
-	color: white;
+	color: black;
 	font-family: 'Yatra One', cursive;
 	font-size: 50px;
 	text-decoration: none;

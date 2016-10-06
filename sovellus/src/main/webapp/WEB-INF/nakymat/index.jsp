@@ -43,9 +43,11 @@
 </div>
 </div>
 </div>
-<br>
+
 <form action="https://goo.gl/forms/vYOYW7IjdWpRHmsi1">
-<button id=lisaa_oma>Lisää oma tapahtuma</button>
+ <button id=lisaa_oma>Lisää oma tapahtuma</button> 
 </form>
+<br>
+<br>
 </body>
 </html>

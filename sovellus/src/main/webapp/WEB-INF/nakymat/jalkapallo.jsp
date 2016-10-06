@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8" %>
 <%@ page session="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,7 @@
 <table style="width:85%;margin:auto;">
 	
 	<tr>
-		<th id=tyhja><c:out value="${harraste.tapahtuma_nimi}"></c:out></th>
+		<th id=tyhja></th>
 		<th>Ma</th>
 		<th>Ti</th>
 		<th>Ke</th>

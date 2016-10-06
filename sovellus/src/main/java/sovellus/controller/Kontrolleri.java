@@ -108,25 +108,33 @@ public class Kontrolleri {
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		
-		ArrayList<Integer> ajat = new ArrayList<Integer>();
-		
-		for(int i=0;i<15;i++){
-			
-			int aika=8;
-			ajat.add(aika);
-			aika++;
-			
-		}
 		
 		List <Harrastus>harrasteet = hd.haeKaikki();
+		
+		//Laske harrastusten lkm
+		int lkm = 0;
+		
+		for(int i=0;i<harrasteet.size();i++){
+			lkm++;
+		}
+		
+		
+		model.addAttribute("lkm", lkm);
 		model.addAttribute("harrasteet", harrasteet);
-		model.addAttribute("ajat", ajat);
+		
+		
 		
 		System.out.println("||-------------------------------||");
 		System.out.println("Kontrollerin listasta: "+harrasteet.get(0).getTapahtuma_nimi());
 		System.out.println("||-------------------------------||");
 		
 		return "jalkapallo";
+	}
+	
+	public int laskeTapahtumienMaara(){
+		
+		
+		return 0;
 	}
 	
 	

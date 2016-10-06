@@ -61,7 +61,11 @@
 	<tr class=tunti><th><small>23:00</small></th></tr>
 </table>
 </div>
+<script type="text/javascript">
+	
+	var val1="${harrasteet.get(0).getTapahtuma_nimi()}";
+    
+</script>
 <script src="../resources/script.js"></script>
-<!-- <script> console.log(${harraste.tapahtuma_nimi}); </script> -->
 </body>
 </html>

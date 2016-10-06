@@ -10,11 +10,10 @@ function teeKalenteri (){
 		
 		}
 	}
-	//tee testi tapahtumia
-	teeTapahtumia();
+	teeTapahtumat();
 }
 
-function teeTapahtumia(){
+function teeTapahtumat(){
 	teeTapahtuma("58", "Pieni porukka jalkapalloa pelaamaan", "Tule kanssani pelaamaan jalkapalloa! \n\nOsallistujat: 0/2 " +
 			"\n\nMikko Mehilainen \n\nHiekkaharjun urheilukentta \n16:00-17:00");
 	teeTapahtuma("32", "Joka torstai jalkapalloa!", "Pieni porukka kokoontuu pelaamaan jalkapalloa joka torstai ja etsimme muutamaa lisapelaajaa!" +
@@ -31,8 +30,6 @@ function teeTapahtumia(){
 function teeTapahtuma(numero, otsikko, teksti) {
 	document.getElementById(numero).innerHTML = "&#8659;";
 	document.getElementById(numero).style.backgroundColor = "lightgreen";
-	//document.getElementById(numero+"linkki").innerHTML = otsikko;
-	//document.getElementById(numero+"linkki").href = "#";
 	document.getElementById(numero+"linkki").insertAdjacentHTML("afterbegin", '<li id="'+numero+'alt"><a href="#">'+otsikko+'</a></li>');
 	document.getElementById(numero+"alt").onclick = function() {liity(teksti)};
 }

@@ -77,7 +77,7 @@
 		lista[i][4]="${harrasteet.get(i).getJar_nimi()}";
 		lista[i][5]="${harrasteet.get(i).getTapahtuma_paikka()}";
 		lista[i][6]="${harrasteet.get(i).getTapahtuma_aika()}";
-		//console.log(lista[i][3]);
+		//console.log(lista[i][3]); 
 	}
     
 </script>

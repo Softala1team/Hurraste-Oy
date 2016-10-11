@@ -62,8 +62,23 @@
 </table>
 </div>
 <script type="text/javascript">
+
+	//var val1="${harrasteet.get(0).getTapahtuma_nimi()}";
+	//console.log("${harrasteet.get(0)}");
+	var pituus="${lkm}";
+	var lista=[];
 	
-	var val1="${harrasteet.get(0).getTapahtuma_nimi()}";
+	for (i = 0; i < pituus; i++) {
+		lista[i]=[];
+		lista[i][0]="30";
+		lista[i][1]="${harrasteet.get(i).getTapahtuma_nimi()}";
+		lista[i][2]="${harrasteet.get(i).getKuvaus()}";
+		lista[i][3]="Osallistujat: ${harrasteet.get(i).getOsallistujamaara()}/${harrasteet.get(i).getMax_osallistujamaara()}";
+		lista[i][4]="${harrasteet.get(i).getJar_nimi()}";
+		lista[i][5]="${harrasteet.get(i).getTapahtuma_paikka()}";
+		lista[i][6]="${harrasteet.get(i).getTapahtuma_aika()}";
+		//console.log(lista[i][3]); 
+	}
     
 </script>
 <script src="../resources/script.js"></script>

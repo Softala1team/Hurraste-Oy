@@ -14,7 +14,7 @@ function teeKalenteri (){
 }
 
 function teeTapahtumat(){
-	teeTapahtuma("58", "Pieni porukka jalkapalloa pelaamaan", "Tule kanssani pelaamaan jalkapalloa! \n\nOsallistujat: 0/2 " +
+	/*teeTapahtuma("58", "Pieni porukka jalkapalloa pelaamaan", "Tule kanssani pelaamaan jalkapalloa! \n\nOsallistujat: 0/2 " +
 			"\n\nMikko Mehilainen \n\nHiekkaharjun urheilukentta \n16:00-17:00");
 	teeTapahtuma("32", "Joka torstai jalkapalloa!", "Pieni porukka kokoontuu pelaamaan jalkapalloa joka torstai ja etsimme muutamaa lisapelaajaa!" +
 			"\n\nOsallistujat: 0/4 \n\nJussi Juuhala \n\nKapylan kentta \n\n12:00-13:00 ");
@@ -23,7 +23,10 @@ function teeTapahtumat(){
 	teeTapahtuma("20", "Eri klubi", "mukkaan vaan kyl tannehe mahtuu! \n\nOsallistujat: 0/100" +
 	"\n\nTarja Saarikoskinen \n\nHelsinki \n10:00-11:00");
 	teeTapahtuma("20", "Fotbal Klubber", "titta! \n\nOsallistujat: 0/10" +
-	"\n\nJurwa Kebane \n\nHelsinki \n10:00-11:00");
+	"\n\nJurwa Kebane \n\nHelsinki \n10:00-11:00");*/
+	for (i = 0, len = lista.length; i < len; i++) {
+		teeTapahtuma(lista[i][0], lista[i][1], lista[i][2]+ "\n\n"+lista[i][3]+ "\n\n"+lista[i][4]+"\n\n"+lista[i][5]+"\n"+lista[i][6]);
+	}
 }
 
 //<li><a id="'+ids+'linkki" href="#">otsikko</a></li>

@@ -5,13 +5,13 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import sovellus.bean.Harrastus;
+import sovellus.bean.HarrastusImpl;
 
-public class HarrastusRowMapper implements RowMapper<Harrastus>{
+public class HarrastusRowMapper implements RowMapper<HarrastusImpl>{
 
-	public Harrastus mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public HarrastusImpl mapRow(ResultSet rs, int rowNum) throws SQLException {
 		//Alustetaan harrastus...
-		Harrastus h = new Harrastus();
+		HarrastusImpl h = new HarrastusImpl();
 		
 		//Lis‰t‰‰n arvot
 		h.setTapahtumaId(rs.getInt("tapahtuma_id"));

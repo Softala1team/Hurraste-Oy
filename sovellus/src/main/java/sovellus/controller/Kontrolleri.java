@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import sovellus.bean.Aktiviteetti;
-import sovellus.bean.Harrastus;
-import sovellus.dao.AktiviteettiDAO;
-import sovellus.dao.HarrastusDAO;
+import sovellus.bean.AktiviteettiImpl;
+import sovellus.bean.HarrastusImpl;
+import sovellus.dao.AktiviteettiDAOJdbcImpl;
+import sovellus.dao.HarrastusDAOJdbcImpl;
 
 @Controller
 @RequestMapping (value="/sovellus")
@@ -23,26 +23,26 @@ public class Kontrolleri {
 	
 	//Injektoidaan AktiviteettiDAO
 	@Inject
-	private AktiviteettiDAO ad;
+	private AktiviteettiDAOJdbcImpl ad;
 
-	public AktiviteettiDAO getAd() {
+	public AktiviteettiDAOJdbcImpl getAd() {
 		return ad;
 	}
 
-	public void setAd(AktiviteettiDAO ad) {
+	public void setAd(AktiviteettiDAOJdbcImpl ad) {
 		this.ad = ad;
 	}
 	
 	//------------------------------
 	//Injektoidaan HarrastusDAO
 	@Inject
-	private HarrastusDAO hd;
+	private HarrastusDAOJdbcImpl hd;
 
-	public HarrastusDAO getHd() {
+	public HarrastusDAOJdbcImpl getHd() {
 		return hd;
 	}
 
-	public void setHd(HarrastusDAO hd) {
+	public void setHd(HarrastusDAOJdbcImpl hd) {
 		this.hd = hd;
 	}
 	
@@ -66,7 +66,7 @@ public class Kontrolleri {
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
 	public String luoIlmoitusLomake(Model model){
 		
-		Aktiviteetti dummy = new Aktiviteetti();
+		AktiviteettiImpl dummy = new AktiviteettiImpl();
 		model.addAttribute("tyhja_aktiviteetti", dummy);
 		
 		return "luo_Ilmoitus";
@@ -81,7 +81,7 @@ public class Kontrolleri {
 	}*/
 	
 	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
-	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") Aktiviteetti aktiviteetti){
+	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") AktiviteettiImpl aktiviteetti){
 		
 		
 	}
@@ -99,7 +99,7 @@ public class Kontrolleri {
 	public String haeKaikki(Model model) {
 		
 		
-		List <Harrastus>harrasteet = hd.haeKaikki();
+		List <HarrastusImpl>harrasteet = hd.haeKaikki();
 		
 		//Laske harrastusten lkm
 		int lkm = 0;

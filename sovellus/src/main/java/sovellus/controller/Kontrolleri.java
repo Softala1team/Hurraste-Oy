@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import sovellus.bean.Aktiviteetti;
+import sovellus.bean.AktiviteettiImpl;
 import sovellus.bean.Harrastus;
-import sovellus.dao.AktiviteettiDAO;
-import sovellus.dao.HarrastusDAO;
+import sovellus.bean.HarrastusImpl;
+import sovellus.dao.AktiviteettiDAOJdbcImpl;
+import sovellus.dao.HarrastusDAOJdbcImpl;
 
 @Controller
 @RequestMapping (value="/sovellus")
@@ -23,26 +24,26 @@ public class Kontrolleri {
 	
 	//Injektoidaan AktiviteettiDAO
 	@Inject
-	private AktiviteettiDAO ad;
+	private AktiviteettiDAOJdbcImpl ad;
 
-	public AktiviteettiDAO getAd() {
+	public AktiviteettiDAOJdbcImpl getAd() {
 		return ad;
 	}
 
-	public void setAd(AktiviteettiDAO ad) {
+	public void setAd(AktiviteettiDAOJdbcImpl ad) {
 		this.ad = ad;
 	}
 	
 	//------------------------------
 	//Injektoidaan HarrastusDAO
 	@Inject
-	private HarrastusDAO hd;
+	private HarrastusDAOJdbcImpl hd;
 
-	public HarrastusDAO getHd() {
+	public HarrastusDAOJdbcImpl getHd() {
 		return hd;
 	}
 
-	public void setHd(HarrastusDAO hd) {
+	public void setHd(HarrastusDAOJdbcImpl hd) {
 		this.hd = hd;
 	}
 	
@@ -66,22 +67,25 @@ public class Kontrolleri {
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
 	public String luoIlmoitusLomake(Model model){
 		
-		Aktiviteetti dummy = new Aktiviteetti();
-		model.addAttribute("tyhja_aktiviteetti", dummy);
+		Harrastus tyhja_h = new HarrastusImpl();
+		tyhja_h.setTapahtuma_nimi("tapahtuman nimi tähän");
+		
+		model.addAttribute("harraste", tyhja_h);
 		
 		return "luo_Ilmoitus";
 	}
 	
 	//Vastaanota harrastuksen / aktiviteetin tiedot
-	/*
-	@RequestMapping(value="", method=RequestMethod.POST)
-	public void luoHarrastus(@ModelAttribute(value="harrastus") Harrastus harraste){	
-	
-	
-	}*/
+	@RequestMapping(value="luoIlmoitus", method=RequestMethod.POST)
+	public String luoHarraste(@ModelAttribute(value="harraste") HarrastusImpl harraste){
+			
+		hd.lisaaTapahtuma(harraste);
+		
+		return "jalkapallo";	
+	}
 	
 	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
-	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") Aktiviteetti aktiviteetti){
+	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") AktiviteettiImpl aktiviteetti){
 		
 		
 	}
@@ -99,29 +103,15 @@ public class Kontrolleri {
 	public String haeKaikki(Model model) {
 		
 		
-		List <Harrastus>harrasteet = hd.haeKaikki();
+		List <HarrastusImpl>harrasteet = hd.haeKaikki();
 		
-		//Laske harrastusten lkm
-		int lkm = 0;
-		
-		for(int i=0;i<harrasteet.size();i++){
-			lkm++;
-		}
-		
-		//Aseta attribuutit jsp-sivua varten
-		model.addAttribute("lkm", lkm);
+		model.addAttribute("lkm", harrasteet.size());
 		model.addAttribute("harrasteet", harrasteet);
 		
 		
 		return "jalkapallo";
 	}
 	
-	public int laskeTapahtumienMaara(){
-		
-		
-		return 0;
-	}
-	
-	
+
 
 }

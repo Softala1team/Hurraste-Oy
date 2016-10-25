@@ -10,11 +10,11 @@
 
 	<context:property-placeholder location="classpath*:/db_connection.properties" />
 	
-	<bean id="HarrastusDAO" class="sovellus.dao.HarrastusDAO">
+	<bean id="HarrastusDAOJdbcImpl" class="sovellus.dao.HarrastusDAOJdbcImpl">
     	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     
-    <bean id="AktiviteettiDAO" class="sovellus.dao.AktiviteettiDAO">
+    <bean id="AktiviteettiDAOJdbcImpl" class="sovellus.dao.AktiviteettiDAOJdbcImpl">
     	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 

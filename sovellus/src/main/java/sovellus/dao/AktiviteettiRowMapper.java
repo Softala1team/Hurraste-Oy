@@ -5,15 +5,15 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import sovellus.bean.Aktiviteetti;
-import sovellus.bean.Harrastus;
+import sovellus.bean.AktiviteettiImpl;
+import sovellus.bean.HarrastusImpl;
 
-public class AktiviteettiRowMapper implements RowMapper<Aktiviteetti>{
+public class AktiviteettiRowMapper implements RowMapper<AktiviteettiImpl>{
 
 
-	public Aktiviteetti mapRow(ResultSet rs, int rowNumber) throws SQLException {
+	public AktiviteettiImpl mapRow(ResultSet rs, int rowNumber) throws SQLException {
 		//Alustetaan aktiviteetti...
-				Aktiviteetti a = new Aktiviteetti();
+				AktiviteettiImpl a = new AktiviteettiImpl();
 				
 				//Lis‰t‰‰n arvot
 				a.setAktiiviId(rs.getInt("aktiivi_id"));

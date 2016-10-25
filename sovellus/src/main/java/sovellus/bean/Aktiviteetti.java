@@ -1,28 +1,11 @@
 package sovellus.bean;
 
-public class Aktiviteetti implements AktiviteettiInterface {
+public interface Aktiviteetti {
 
-	private int aktiivi_id;
-	private String aktiivi_nimi;
+	public abstract int getAktiiviId();
+	public abstract void setAktiiviId(int aktiivi_id);
 	
-
-	public int getAktiiviId() {
-		return aktiivi_id;
-	}
-
-
-	public void setAktiiviId(int aktiivi_id) {
-		this.aktiivi_id = aktiivi_id;
-	}
-
-
-	public String getAktiiviNimi() {
-		return aktiivi_nimi;
-	}
-
-
-	public void setAktiiviNimi(String aktiivi_nimi) {
-		this.aktiivi_nimi = aktiivi_nimi;
-	}
-
+	public abstract String getAktiiviNimi();
+	public abstract void setAktiiviNimi(String aktiivi_nimi);
+	
 }

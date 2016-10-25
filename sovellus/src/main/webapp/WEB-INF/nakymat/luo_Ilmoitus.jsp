@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+
 <title>Ilmoita täällä</title>
 </head>
 <body>
@@ -21,7 +25,7 @@
 	</div>
 	</div>
 	<div id="otsikko">
-	<h2>Aktiviteettilomake</h2>
+	<h2>Luo oma tapahtumasi</h2>
 	</div>
 </div>
 
@@ -56,10 +60,6 @@
 			<td><form:input path="tapahtuma_aika"/></td>
 		</tr>
 
-		<tr>
-			<th><form:label path="osallistujamaara">Osallistujia</form:label></th>
-			<td><form:input path="osallistujamaara"/></td>
-		</tr>
 		<tr>
 			<th><form:label path="max_osallistujamaara">Osallistujia enintään</form:label></th>
 			<td><form:input path="max_osallistujamaara"/>

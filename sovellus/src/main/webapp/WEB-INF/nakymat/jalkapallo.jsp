@@ -28,6 +28,7 @@
 </div>
 <div id="otsikko">
 <h2>Jalkapallo</h2>
+<p>Harrastuksien lukumäärä kannassa: <c:out value="${lkm}"/></p>
 </div>
 </div>
 

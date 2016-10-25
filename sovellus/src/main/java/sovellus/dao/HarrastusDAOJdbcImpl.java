@@ -1,9 +1,15 @@
 package sovellus.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import sovellus.bean.HarrastusImpl;
 
@@ -30,6 +36,7 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		RowMapper<HarrastusImpl> mappaaja = new HarrastusRowMapper();
 		List<HarrastusImpl> harrastukset =jdbcTemplate.query(sql, mappaaja);
 		
+		
 		return harrastukset;
 	}
 
@@ -48,11 +55,12 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 
 	public void lisaaTapahtuma(HarrastusImpl h) {
 		
-		String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, kuvaus, tapahtuma_paikka, aktiivi_id)"
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, kuvaus, tapahtuma_paikka)"
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
+
 		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
-				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getKuvaus(), h.getTapahtuma_paikka(), h.getAktiiviId()};
+				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
 		
 		jdbcTemplate.update(sql, parametrit);
 

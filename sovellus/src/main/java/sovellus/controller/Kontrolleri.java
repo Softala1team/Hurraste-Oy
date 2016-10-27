@@ -2,6 +2,7 @@ package sovellus.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -11,6 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import sovellus.bean.AktiviteettiImpl;
 import sovellus.bean.Harrastus;
@@ -103,10 +108,14 @@ public class Kontrolleri {
 	public String haeKaikki(Model model) {
 		
 		
-		List <HarrastusImpl>harrasteet = hd.haeKaikki();
+//		List <HarrastusImpl>harrasteet = hd.haeKaikki();
+//
+//		model.addAttribute("lkm", harrasteet.size());
+//		model.addAttribute("harrasteet", harrasteet);
 		
-		model.addAttribute("lkm", harrasteet.size());
-		model.addAttribute("harrasteet", harrasteet);
+		List<JsonNode> json = hd.haeKaikkiv2();
+		
+		model.addAttribute("json", json);
 		
 		
 		return "jalkapallo";

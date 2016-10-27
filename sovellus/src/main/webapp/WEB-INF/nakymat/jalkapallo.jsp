@@ -98,7 +98,7 @@
 </div>
 <div id="otsikko">
 <h2>Jalkapallo</h2>
-<p>Harrastuksien lukumäärä kannassa: <c:out value="${lkm}"/></p>
+<p>Kannan tiedot json-muodossa: <br><c:out value="${json}"/></p>
 </div>
 </div>
 

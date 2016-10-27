@@ -172,10 +172,12 @@ td {
 	margin-top: -0.5em;
 	
 	text-align: center;
-	color: black;
+	color: #ffffff;
 	font-family: 'Yatra One', cursive;
 	font-size: 50px;
 	text-decoration: none;
+	text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
+	
 }
 
 /*#pallo {

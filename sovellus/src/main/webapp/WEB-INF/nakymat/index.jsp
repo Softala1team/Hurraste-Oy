@@ -49,7 +49,6 @@
  <button id=lisaa_oma>Lisää oma tapahtuma</button> 
 </form>
 <!-- <a href="sovellus/luoIlmoitus">Luo testidataa kantaan tästä!</a> -->
-<a href="sovellus/lista">Katso, mitä kannassa on!</a>
 <br>
 <br>
 </body>

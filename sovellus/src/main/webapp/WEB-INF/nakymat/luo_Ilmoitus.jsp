@@ -46,8 +46,6 @@
 			<th><form:label path="tapahtuma_paikka">Tapahtuman paikka</form:label></th>
 			<td><form:input path="tapahtuma_paikka"/></td>
 			
-			<th><form:label path="tapahtuma_paikka">Tapahtuman aika</form:label></th>
-			<td><form:input path="tapahtuma_paikka"/></td>
 			
 			<th><form:label path="tapahtuma_nimi">Tapahtuman nimi</form:label></th>
 			<td><form:input path="tapahtuma_nimi"/></td>

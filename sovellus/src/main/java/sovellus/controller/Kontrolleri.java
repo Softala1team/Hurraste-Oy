@@ -60,15 +60,7 @@ public class Kontrolleri {
 		
 
 	
-	//Luontikoodit jalkapallolle
-	/*@RequestMapping(value="", method=RequestMethod.POST)
-	public String luoHarrastusLomake(Model model){
-		
-		Harrastus dummy = new Harrastus();
-		model.addAttribute("tyhja_harrastus", dummy);
-		
-		return "luo_Harraste";
-	}*/
+	//Luo tyhjä lomake käyttäjälle
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
 	public String luoIlmoitusLomake(Model model){
 		
@@ -80,15 +72,16 @@ public class Kontrolleri {
 		return "luo_Ilmoitus";
 	}
 	
-	//Vastaanota harrastuksen / aktiviteetin tiedot
+	//Luo tavallisen käyttäjän luoma harraste kalenteriin.
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.POST)
 	public String luoHarraste(@ModelAttribute(value="harraste") HarrastusImpl harraste){
 			
 		hd.lisaaTapahtuma(harraste);
 		
-		return "jalkapallo";	
+		return "index";	
 	}
 	
+	//Ylläpitäjän työkalu uusien harrastusten luontiin?
 	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
 	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") AktiviteettiImpl aktiviteetti){
 		
@@ -107,17 +100,10 @@ public class Kontrolleri {
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		
-		
-//		List <HarrastusImpl>harrasteet = hd.haeKaikki();
-//
-//		model.addAttribute("lkm", harrasteet.size());
-//		model.addAttribute("harrasteet", harrasteet);
-		
-		List<JsonNode> json = hd.haeKaikkiv2();
-		
+
+		List<JsonNode> json = hd.haeTapahtumatJson();	
 		model.addAttribute("json", json);
-		
-		
+			
 		return "jalkapallo";
 	}
 	

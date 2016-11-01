@@ -23,7 +23,7 @@
 		<mvc:annotation-driven />
 
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
-		<mvc:view-controller path="/" view-name="index" />
+		<mvc:view-controller path="/" view-name="jalkapallo" />
 	
 	<!-- location of static content (images, js and css files) -->
 		<mvc:resources mapping="/resources/**" location="/resources/" />

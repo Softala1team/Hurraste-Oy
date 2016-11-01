@@ -38,7 +38,7 @@
 			weekNumbers: false,
 			editable: false,
 			eventLimit: true,
-			ignoreTimezone: true,
+			timezone: 'local',
 			eventRender: function (event, element) {
 		        element.attr('href', 'javascript:void(0);');
 		        element.click(function() {
@@ -104,7 +104,6 @@
 </div>
 <div id="otsikko">
 <h2>Jalkapallo</h2>
-<p>Kannan tiedot json-muodossa: <br><c:out value="${json}"/></p>
 </div>
 </div>
 

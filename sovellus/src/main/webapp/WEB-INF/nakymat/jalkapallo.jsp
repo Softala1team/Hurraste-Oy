@@ -97,7 +97,7 @@
 <div class="navdrop-content" style="left:0;">
 	<a href="/sovellus">Etusivu</a>
 	<a class="active" href="/jalkapallo">Jalkapallo</a>
-	<a href="kutominen.jsp">Kutominen</a>
+	<a href="/kutominen">Kutominen</a>
 	<a href="ruoanlaitto.jsp">Ruoanlaitto</a>
 	<a href="salibandy.jsp">Salibandy</a>
 </div>

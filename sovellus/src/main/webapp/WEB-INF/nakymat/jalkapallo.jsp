@@ -52,20 +52,23 @@
 		        });
 		    }
 		});
-		//var aa="$";
-		for (i = 0, len=parseInt("${lkm}"); i < len; i++) {
-			var newEvent = {
-					title: '${harrasteet.get(i).getTapahtuma_nimi()}',
-	                start: '${harrasteet.get(i).getTapahtuma_aika()}',
-	                //end: '${harrasteet.get(i).getTapahtuma_aika()}',
-	                description: '${harrasteet.get(i).getKuvaus()}',
-	                paikka: '${harrasteet.get(i).getTapahtuma_paikka()}',
-	                jarj: "${harrasteet.get(i).getJar_nimi()}",
-	                osallistujia: '${harrasteet.get(i).getOsallistujamaara()}/${harrasteet.get(i).getMax_osallistujamaara()}',
-	                urli: '/sovellus/${harrasteet.get(i).getTapahtumaId()}'
+
+		var json = JSON.parse('${json}');
+		
+		for(var i = 0; i < json.length; i++) {
+		    var obj = json[i];
+		    var newEvent = {
+					title: obj.tapahtuma_nimi,
+	                start: obj.tapahtuma_aika,
+	                //end: obj.tapahtuma_aika,
+	                description: obj.kuvaus,
+	                paikka: obj.tapahtuma_paikka,
+	                jarj: obj.jar_nimi,
+	                osallistujia: obj.osallistujamaara+'/'+obj.max_osallistujamaara,
+	                urli: '/sovellus/'+obj.tapahtuma_id
 	                //allDay: false,
 	            };
-	            $('#calendar').fullCalendar( 'renderEvent', newEvent,'stick');
+	       $('#calendar').fullCalendar( 'renderEvent', newEvent,'stick');
 		}
 	});
 

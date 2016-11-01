@@ -7,59 +7,105 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link href="resources/styles/style.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
+<script src='../resources/jquery.min.js'></script>
+<link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css' rel='stylesheet' />
+<link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.print.css' rel='stylesheet' media='print' />
+<link href='../resources/jquery-ui.min.css' rel='stylesheet' type='text/css'>
+<script src='../resources/moment.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.js'></script>
+<script src='../resources/fi.js'></script>
+<script src='../resources/jquery-ui.min.js'></script>
 
-<title>Kutomiskalenteri</title>
+
+
+<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
+<script>
+
+	$(document).ready(function() {
+		var initialLocaleCode = 'fi';
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay,listMonth'
+			},
+			defaultDate: $('#calendar').fullCalendar('getDate'),
+			defaultView: 'month',
+			//theme:true,
+			navLinks: true,
+			weekNumbers: false,
+			editable: false,
+			eventLimit: true,
+			eventRender: function (event, element) {
+		        element.attr('href', 'javascript:void(0);');
+		        element.click(function() {
+		            $("#startTime").html(moment(event.start).format('Do MMMM HH:mm'));
+		            $("#endTime").html(moment(event.end).format('Do MMMM HH:mm'));
+		            $("#eventInfo").html(event.description);
+		            $("#paikka").html(event.paikka);
+		            $("#jarj").html(event.jarj);
+		            $("#osallistujia").html(event.osallistujia);
+		            $("#eventLink").attr('href', event.urli);
+		            $("#eventContent").dialog({ modal: true, title: event.title, width:450, closeText: "Sulje" });
+		        });
+		    }
+		});
+
+		var json = JSON.parse('${json}');
+		
+		for(var i = 0; i < json.length; i++) {
+		    var obj = json[i];
+		    var newEvent = {
+					title: obj.tapahtuma_nimi,
+	                start: obj.tapahtuma_aika,
+	                //end: obj.tapahtuma_aika,
+	                description: obj.kuvaus,
+	                paikka: obj.tapahtuma_paikka,
+	                jarj: obj.jar_nimi,
+	                osallistujia: obj.osallistujamaara+'/'+obj.max_osallistujamaara,
+	                urli: '/sovellus/'+obj.tapahtuma_id
+	                //allDay: false,
+	            };
+	       $('#calendar').fullCalendar( 'renderEvent', newEvent,'stick');
+		}
+	});
+
+</script>
+<title>Kalenteri</title>
 </head>
-<body onload="teeKalenteri()">
+<body>
+
+<div id="eventContent" title="Event Details" style="display:none;">
+    Alkaa: <span id="startTime"></span><br>
+    Loppuu: <span id="endTime"></span><br>
+    <small>Järjestäjä: <span id="jarj"></span></small><br><br>
+    <span id="paikka"></span><br>
+    <small>Osallistujia: <span id="osallistujia"></span></small><br>
+    <p id="eventInfo"></p>
+    <p><strong><a id="eventLink" href="" target="_blank">Ilmoittaudu!</a></strong></p>
+</div>
 
 <div id=header>
 
 <div class="navdrop">
 <button class="dropbtn">Muut aktiviteetit</button>
 <div class="navdrop-content" style="left:0;">
-	<a href="etusivu.jsp">Etusivu</a>
-	<a href="jalkapallo.jsp">Jalkapallo</a>
-	<a href="kutominen.jsp">Kutominen</a>
-	<a class="active" href="ruoanlaitto.jsp">Ruoanlaitto</a>
+	<a href="/sovellus">Etusivu</a>
+	<a href="/jalkapallo">Jalkapallo</a>
+	<a class="active" href="/kutominen">Kutominen</a>
+	<a href="ruoanlaitto.jsp">Ruoanlaitto</a>
 	<a href="salibandy.jsp">Salibandy</a>
 </div>
 </div>
 <div id="otsikko">
 <h2>Kutominen</h2>
+<p>Kannan tiedot json-muodossa: <br><c:out value="${json}"/></p>
 </div>
 </div>
 
-<div id="kalenteri">
-<table style="width:99%; height:100%;">
-	
-	<tr>
-		<th id=tyhja></th>
-		<th>Maanantai</th>
-		<th>Tiistai</th>
-		<th>Keskiviikko</th>
-		<th>Torstai</th>
-		<th>Perjantai</th>
-		<th>Lauantai</th>
-		<th>Sunnuntai</th>
-	</tr>
-	<tr class=tunti><th>8-9</th></tr>
-	<tr class=tunti><th>9-10</th></tr>
-	<tr class=tunti><th>10-11</th></tr>
-	<tr class=tunti><th>11-12</th></tr>
-	<tr class=tunti><th>12-13</th></tr>
-	<tr class=tunti><th>14-15</th></tr>
-	<tr class=tunti><th>15-16</th></tr>
-	<tr class=tunti><th>16-17</th></tr>
-	<tr class=tunti><th>18-19</th></tr>
-	<tr class=tunti><th>19-20</th></tr>
-	<tr class=tunti><th>20-21</th></tr>
-	<tr class=tunti><th>21-22</th></tr>
-	<tr class=tunti><th>22-23</th></tr>
-	<tr class=tunti><th>23-00</th></tr>
-</table>
-</div>
-<script src="scripts.js"></script>
+
+<div style="max-width:1200px;margin:40px auto;padding:0 10px;" id='calendar'></div>
 </body>
 </html>

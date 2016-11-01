@@ -16,8 +16,6 @@
 <script src='../resources/fi.js'></script>
 <script src='../resources/jquery-ui.min.js'></script>
 
-
-
 <link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 <script>
@@ -66,7 +64,7 @@
 	                paikka: obj.tapahtuma_paikka,
 	                jarj: obj.jar_nimi,
 	                osallistujia: obj.osallistujamaara+'/'+obj.max_osallistujamaara,
-	                urli: '/sovellus/'+obj.tapahtuma_id,
+	                urli: '/sovellus/sovellus/'+obj.tapahtuma_id,
 	                color: 'green'
 	                //textColor:
 	                //allDay: false,
@@ -76,7 +74,7 @@
 	});
 
 </script>
-<title>Jalkapallokalenteri</title>
+<title>Tapahtumakalenteri</title>
 </head>
 <body>
 
@@ -103,7 +101,7 @@
 </div>
 </div>
 <div id="otsikko">
-<h2>Jalkapallo</h2>
+<h2>Tapahtumakalenteri</h2>
 </div>
 </div>
 

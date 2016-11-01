@@ -29,26 +29,21 @@
 <div id="buttonbox">
 <div class="pallobutton">
 <div id="palloA">
-		<a href=sovellus/jalkapallo class="pallobutton">Jalkapallo</a>
+		<a href=sovellus/jalkapallo class="pallobutton">Tapahtumat</a>
 </div>
 <div id="palloB">
-		<a href=sovellus/kutominen class="pallobutton">Kutominen</a>
+		<a href=sovellus/luoIlmoitus class="pallobutton">Luo oma tapahtumasi</a>
 </div>
-<br>
+ <!-- <br>
 <div id="palloC">
 		<a href=sovellus/salibandy class="pallobutton">Salibandy</a>
 </div>
 <div id="palloD">
 		<a href=sovellus/ruoanlaitto class="pallobutton">Ruoanlaitto</a>
-</div>
+</div>-->
 </div>
 </div>
 
-<!-- <form action="https://goo.gl/forms/vYOYW7IjdWpRHmsi1"> -->
-<form action="sovellus/luoIlmoitus">
- <button id=lisaa_oma>Lis‰‰ oma tapahtuma</button> 
-</form>
-<!-- <a href="sovellus/luoIlmoitus">Luo testidataa kantaan t‰st‰!</a> -->
 <br>
 <br>
 </body>

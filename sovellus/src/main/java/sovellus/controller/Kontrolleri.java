@@ -90,13 +90,16 @@ public class Kontrolleri {
 	
 	//Hakukoodit jalkapallolle
 	
+	//tietty
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
 	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
+		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
+		model.addAttribute("harrastus", harrastus);
 		
-		
-		return "jalkapallo";
+		return "tapahtuma";
 	}
 	
+	//kaikki jsoniin
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		

@@ -29,7 +29,7 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay,listMonth'
+				right: 'month,agendaWeek,agendaDay,listYear'
 			},
 			defaultDate: $('#calendar').fullCalendar('getDate'),
 			defaultView: 'month',
@@ -38,6 +38,7 @@
 			weekNumbers: false,
 			editable: false,
 			eventLimit: true,
+			ignoreTimezone: true,
 			eventRender: function (event, element) {
 		        element.attr('href', 'javascript:void(0);');
 		        element.click(function() {
@@ -65,7 +66,9 @@
 	                paikka: obj.tapahtuma_paikka,
 	                jarj: obj.jar_nimi,
 	                osallistujia: obj.osallistujamaara+'/'+obj.max_osallistujamaara,
-	                urli: '/sovellus/'+obj.tapahtuma_id
+	                urli: '/sovellus/'+obj.tapahtuma_id,
+	                color: 'green'
+	                //textColor:
 	                //allDay: false,
 	            };
 	       $('#calendar').fullCalendar( 'renderEvent', newEvent,'stick');

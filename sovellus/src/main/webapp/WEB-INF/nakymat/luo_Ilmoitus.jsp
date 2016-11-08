@@ -66,10 +66,10 @@
 		
 		<tr>
 			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
-			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika"/></td>
+			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="true"/></td>
 		
 			<th><form:label path="loppumis_aika">Tapahtuman loppumisaika</form:label>
-			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika"/></td>
+			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="true"/></td>
 		</tr>
 
 		<tr>

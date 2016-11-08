@@ -6,7 +6,7 @@ public class HarrastusImpl implements Harrastus {
 				aktiiviId;
 	
 	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
-					tapahtuma_aika, tapahtuma_paikka, kuvaus;
+					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
 
 	public String getTapahtuma_aika() {
 		return tapahtuma_aika;
@@ -105,7 +105,15 @@ public class HarrastusImpl implements Harrastus {
 		this.kuvaus = kuvaus;
 	}
 
+	public String getLoppumis_aika() {
+		return loppumis_aika;
+	}
 
+	public void setLoppumis_aika(String loppumis_aika) {
+		this.loppumis_aika = loppumis_aika;
+	}
+
+	
 
 	
 	

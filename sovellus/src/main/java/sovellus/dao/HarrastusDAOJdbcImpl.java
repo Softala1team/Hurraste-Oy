@@ -1,33 +1,13 @@
 package sovellus.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
-
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import sovellus.bean.HarrastusImpl;
 
 public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 
-	private String sql = "select * from TAPAHTUMA";
-	private Connection con;
-//-------------------------------------------
-  
 	JdbcTemplate jdbcTemplate = new JdbcTemplate();
 	
 	
@@ -66,12 +46,12 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 
 	public void lisaaTapahtuma(HarrastusImpl h) {
 		
-		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, kuvaus, tapahtuma_paikka)"
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka)"
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 
 		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
-				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
+				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
 		
 		
 		jdbcTemplate.update(sql, parametrit);
@@ -87,8 +67,6 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		jdbcTemplate.execute(sql);
 		
 	}
-	
-	//Pelkk‰‰ kokeilua stackista
 	
 
 }

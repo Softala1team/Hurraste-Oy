@@ -59,7 +59,7 @@
 		    var newEvent = {
 					title: obj.tapahtuma_nimi,
 	                start: obj.tapahtuma_aika,
-	                //end: obj.tapahtuma_aika,
+	                end: obj.loppumis_aika,
 	                description: obj.kuvaus,
 	                paikka: obj.tapahtuma_paikka,
 	                jarj: obj.jar_nimi,

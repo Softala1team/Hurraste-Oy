@@ -10,9 +10,11 @@
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 <title>${harrastus.tapahtuma_nimi}</title>
+<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 </head>
 <body>
-<p>${harrastus.tapahtuma_nimi}</p>
+<p>${harrastus.tapahtumaId} ${harrastus.tapahtuma_nimi}</p>
 <p>ei tätä ominaisuutta varmaan tarvita</p>
 </body>
 </html>

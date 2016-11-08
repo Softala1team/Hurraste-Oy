@@ -8,6 +8,7 @@
 
 <link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <title>Ilmoita täällä</title>
 </head>
@@ -21,38 +22,43 @@
 	</div>
 </div>
 
-<form:form modelAttribute="harraste" method="post">
+<form:form modelAttribute="harraste" method="post" name="luoTapahtuma">
 <table>
 	<thead>
 		<tr>
 			<th><form:label path="jar_nimi">Järjestäjän nimi</form:label></th>
-			<td><form:input path="jar_nimi"/></td>
+			<td><form:input path="jar_nimi" name="jar_nimi"/></td>
 			
 			<th><form:label path="puh_num">Puhelinnumero</form:label></th>
-			<td><form:input path="puh_num"/></td>
+			<td><form:input path="puh_num" name="puh_num"/></td>
 			
 			<th><form:label path="email">Email</form:label></th>
-			<td><form:input path="email"/></td>
+			<td><form:input path="email" name="email"/></td>
 		</tr>
 		<tr>
 			<th><form:label path="tapahtuma_paikka">Tapahtuman paikka</form:label></th>
-			<td><form:input path="tapahtuma_paikka"/></td>
+			<td><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/></td>
 			
 			
 			<th><form:label path="tapahtuma_nimi">Tapahtuman nimi</form:label></th>
-			<td><form:input path="tapahtuma_nimi"/></td>
+			<td><form:input path="tapahtuma_nimi" name="tapahtuma_nimi"/></td>
 		</tr>
 		<tr>
 			<th><form:label path="kuvaus">Tapahtuman kuvaus</form:label></th>
-			<td><form:input path="kuvaus"/></td>
+			<td><form:input path="kuvaus" name="kuvaus"/></td>
 			
-			<th><form:label path="tapahtuma_aika">Tapahtuman aika</form:label></th>
-			<td><form:input path="tapahtuma_aika"/></td>
+			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
+			<td><form:input path="tapahtuma_aika" name="tapahtuma_aika"/></td>
+		</tr>
+		
+		<tr>
+			<th><form:label path="loppumis_aika">Tapahtuman loppumisaika</form:label>
+			<td><form:input path="loppumis_aika" name="loppumis_aika"/></td>
 		</tr>
 
 		<tr>
 			<th><form:label path="max_osallistujamaara">Osallistujia enintään</form:label></th>
-			<td><form:input path="max_osallistujamaara"/>
+			<td><form:input path="max_osallistujamaara" name="max_osallistujamaara"/>
 		</tr>
 		<tr>
 			<th>

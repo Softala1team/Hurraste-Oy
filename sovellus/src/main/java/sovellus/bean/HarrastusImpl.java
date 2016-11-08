@@ -1,13 +1,42 @@
 package sovellus.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+
 public class HarrastusImpl implements Harrastus {
 	
 	private int tapahtumaId,osallistujamaara, max_osallistujamaara,
 				aktiiviId;
+//	
+//	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
+//					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
 	
-	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
-					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
-
+	@NotNull
+	@Size(max=100)
+	private String tapahtuma_nimi;
+	
+	@NotNull
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	private String tapahtuma_aika;
+	
+	@NotNull
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	private String loppumis_aika;
+	
+	@NotNull
+	@Size(min=1)
+	private String jar_nimi;
+	
+	@Pattern(regexp="/d{10}")
+	private String puh_num;
+	
+	private String email, tapahtuma_paikka, kuvaus;
+	
 	public String getTapahtuma_aika() {
 		return tapahtuma_aika;
 	}
@@ -86,14 +115,6 @@ public class HarrastusImpl implements Harrastus {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPvm() {
-		return pvm;
-	}
-
-	public void setPvm(String pvm) {
-		this.pvm = pvm;
 	}
 
 

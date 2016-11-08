@@ -8,7 +8,23 @@
 
 <link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- <link href='../resources/jquery-ui.min.css' rel='stylesheet' type='text/css'> -->
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<script>
+  $( function() {
+	  $( ".valitsepvm" ).datepicker({
+		  dateFormat: "yy-mm-dd",
+		  dayNames:["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
+		  dayNamesMin:["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+		  monthNames:["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kes‰kuu", "Hein‰kuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+		  monthNamesMin:["Tam", "Hel", "Maa", "Huh", "Tou", "Kes", "Hei", "Elo", "Syys", "Loka", "Marras", "Joulu"],
+	  });
+  });
+</script>
 
 <title>Ilmoita t‰‰ll‰</title>
 </head>
@@ -35,38 +51,38 @@
 	<thead>
 		<tr>
 			<th><form:label path="jar_nimi">J‰rjest‰j‰n nimi</form:label></th>
-			<td><form:input path="jar_nimi" name="jar_nimi"/></td>
+			<td><form:input path="jar_nimi" name="jar_nimi" ng-model="jar_nimi"/></td>
 			
 			<th><form:label path="puh_num">Puhelinnumero</form:label></th>
-			<td><form:input path="puh_num" name="puh_num"/></td>
+			<td><form:input path="puh_num" name="puh_num" ng-model="puh_num"/></td>
 			
+		</tr>
+		<tr>
 			<th><form:label path="email">Email</form:label></th>
-			<td><form:input path="email" name="email"/></td>
-		</tr>
-		<tr>
+			<td><form:input path="email" name="email" ng-model="email"/></td>
+			
 			<th><form:label path="tapahtuma_paikka">Tapahtuman paikka</form:label></th>
-			<td><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/></td>
-			
-			
-			<th><form:label path="tapahtuma_nimi">Tapahtuman nimi</form:label></th>
-			<td><form:input path="tapahtuma_nimi" name="tapahtuma_nimi"/></td>
+			<td><form:input path="tapahtuma_paikka" name="tapahtuma_paikka" ng-model="tapahtuma_paikka"/></td>
 		</tr>
 		<tr>
-			<th><form:label path="kuvaus">Tapahtuman kuvaus</form:label></th>
-			<td><form:input path="kuvaus" name="kuvaus"/></td>
+			<th><form:label path="tapahtuma_nimi">Tapahtuman nimi</form:label></th>
+			<td><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/></td>
 			
-			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
-			<td><form:input path="tapahtuma_aika" name="tapahtuma_aika"/></td>
+			<th><form:label path="kuvaus">Tapahtuman kuvaus</form:label></th>
+			<td><form:input path="kuvaus" name="kuvaus" ng-model="kuvaus"/></td>
 		</tr>
 		
 		<tr>
+			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
+			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika"/></td>
+		
 			<th><form:label path="loppumis_aika">Tapahtuman loppumisaika</form:label>
-			<td><form:input path="loppumis_aika" name="loppumis_aika"/></td>
+			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika"/></td>
 		</tr>
 
 		<tr>
 			<th><form:label path="max_osallistujamaara">Osallistujia enint‰‰n</form:label></th>
-			<td><form:input path="max_osallistujamaara" name="max_osallistujamaara"/>
+			<td><form:input path="max_osallistujamaara" name="max_osallistujamaara" ng-model="max_osallistujamaara"/>
 		</tr>
 		<tr>
 			<th>

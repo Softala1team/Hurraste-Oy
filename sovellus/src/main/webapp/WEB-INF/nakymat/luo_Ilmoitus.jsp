@@ -7,23 +7,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="../resources/styles/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
 <!-- <link href='../resources/jquery-ui.min.css' rel='stylesheet' type='text/css'> -->
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="../resources/jquery.datetimepicker.full.min.js"></script>
 
 <script>
-  $( function() {
-	  $( ".valitsepvm" ).datepicker({
-		  dateFormat: "yy-mm-dd",
-		  dayNames:["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
-		  dayNamesMin:["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
-		  monthNames:["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
-		  monthNamesMin:["Tam", "Hel", "Maa", "Huh", "Tou", "Kes", "Hei", "Elo", "Syys", "Loka", "Marras", "Joulu"],
-	  });
-  });
+//   $( function (){
+// 	  $( '.valitsepvm' ).datepicker({
+// 		  dateFormat: "yy-mm-dd",
+// 		  dayNames:["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
+// 		  dayNamesMin:["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+// 		  monthNames:["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+// 		  monthNamesMin:["Tam", "Hel", "Maa", "Huh", "Tou", "Kes", "Hei", "Elo", "Syys", "Loka", "Marras", "Joulu"],
+// 	  });
+//   });
+$(function(){
+$('.valitsepvm').datetimepicker().setLocale('fi');
+});
+
 </script>
 
 <title>Ilmoita täällä</title>
@@ -66,13 +72,14 @@
 		
 		<tr>
 			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
-			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="true"/></td>
+			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/></td>
 		
 			<th><form:label path="loppumis_aika">Tapahtuman loppumisaika</form:label>
-			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="true"/></td>
+			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/></td>
 		</tr>
 
 		<tr>
+
 			<th><form:label path="max_osallistujamaara">Osallistujia enintään</form:label></th>
 			<td><form:input path="max_osallistujamaara" name="max_osallistujamaara" ng-model="max_osallistujamaara"/>
 		</tr>

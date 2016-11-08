@@ -14,18 +14,10 @@
 <body>
 <div id=header>
 
-	<div class="navdrop">
-	<button class="dropbtn">Muut aktiviteetit</button>
-	<div class="navdrop-content" style="left:0;">
-		<a href="/sovellus">Etusivu</a>
-		<a class="active" href="/jalkapallo">Jalkapallo</a>
-		<a href="kutominen.jsp">Kutominen</a>
-		<a href="ruoanlaitto.jsp">Ruoanlaitto</a>
-		<a href="salibandy.jsp">Salibandy</a>
-	</div>
-	</div>
+<a href="/sovellus">Etusivu</a>
+	
 	<div id="otsikko">
-	<h2>Luo oma tapahtumasi</h2>
+	<h2 style="margin-top:-75px;margin-bottom:450px">Luo oma tapahtumasi</h2>
 	</div>
 </div>
 

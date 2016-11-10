@@ -27,7 +27,7 @@
 // 	  });
 //   });
 $(function(){
-$('.valitsepvm').datetimepicker().setLocale('fi');
+$('.valitsepvm').datetimepicker();
 });
 
 </script>
@@ -44,49 +44,53 @@ $('.valitsepvm').datetimepicker().setLocale('fi');
 	</div>
 </div>
 
-<form:form modelAttribute="harraste" method="post" name="luoTapahtuma">
-<table>
+<form:form modelAttribute="harraste" method="post" name="luoTapahtuma" class="tapahtumalomake">
+<table id="lomaketable">
 	<thead>
-		<tr>
-			<th><form:label path="jar_nimi">Järjestäjän nimi</form:label></th>
-			<td><form:input path="jar_nimi" name="jar_nimi" ng-model="jar_nimi"/></td>
-			
-			<th><form:label path="puh_num">Puhelinnumero</form:label></th>
-			<td><form:input path="puh_num" name="puh_num" ng-model="puh_num"/></td>
+		<tr class="lomaketr">
+			<td class="lomaketd"><h3 id="lomakeh3">Järjestäjän tiedot:</h3></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="jarjestajantiedot"><form:label path="jar_nimi">Järjestäjän nimi: </form:label></td>
+			<td class="lomaketd"><form:input path="jar_nimi" name="jar_nimi" placeholder="Etunimi Sukunimi"/></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="puh_num">Puhelinnumero: </form:label></td>
+			<td class="lomaketd"><form:input path="puh_num" name="puh_num" placeholder="0441234567"/></td>
 			
 		</tr>
-		<tr>
-			<th><form:label path="email">Email</form:label></th>
-			<td><form:input path="email" name="email" ng-model="email"/></td>
-			
-			<th><form:label path="tapahtuma_paikka">Tapahtuman paikka</form:label></th>
-			<td><form:input path="tapahtuma_paikka" name="tapahtuma_paikka" ng-model="tapahtuma_paikka"/></td>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="email">Sähköpostiosoite: </form:label></td>
+			<td class="lomaketd"><form:input path="email" name="email" placeholder="sahko.posti@osoite.fi"/></td>
 		</tr>
-		<tr>
-			<th><form:label path="tapahtuma_nimi">Tapahtuman nimi</form:label></th>
-			<td><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/></td>
-			
-			<th><form:label path="kuvaus">Tapahtuman kuvaus</form:label></th>
-			<td><form:input path="kuvaus" name="kuvaus" ng-model="kuvaus"/></td>
+		<tr class="lomaketr">
+			<td class="lomaketd"><h3 id="lomakeh3">Tapahtuman tiedot</h3>
+		</tr>
+		<tr class="lomaketr">	
+			<td class="lomaketd"><form:label path="tapahtuma_paikka">Tapahtuman paikka: </form:label></td>
+			<td class="lomaketd"><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="tapahtuma_nimi">Tapahtuman nimi: </form:label></td>
+			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/></td>
+		<tr class="lomaketr">	
+			<td class="lomaketd"><form:label path="kuvaus">Tapahtuman kuvaus: </form:label></td>
+			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus" ng-model="kuvaus"/></td>
 		</tr>
 		
-		<tr>
-			<th><form:label path="tapahtuma_aika">Tapahtuman alkuaika</form:label></th>
-			<td><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/></td>
-		
-			<th><form:label path="loppumis_aika">Tapahtuman loppumisaika</form:label>
-			<td><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/></td>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="tapahtuma_aika">Tapahtuman alkuaika: </form:label></td>
+			<td class="lomaketd"><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/></td>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="loppumis_aika">Tapahtuman loppumisaika: </form:label>
+			<td class="lomaketd"><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/></td>
 		</tr>
-
-		<tr>
-
-			<th><form:label path="max_osallistujamaara">Osallistujia enintään</form:label></th>
-			<td><form:input path="max_osallistujamaara" name="max_osallistujamaara" ng-model="max_osallistujamaara"/>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="max_osallistujamaara">Osallistujia enintään: </form:label></td>
+			<td class="lomaketd"><form:input id="osallistujat" path="max_osallistujamaara" name="max_osallistujamaara" ng-model="max_osallistujamaara"/>
 		</tr>
-		<tr>
-			<th>
-			<button type="submit">Laita ilmoitus!</button>
-			</th>
+		<tr class="lomaketr">
+			<td class="lomaketd"><button type="submit">Laita ilmoitus!</button></td>
 		</tr>
 		
 	</thead>

@@ -44,6 +44,16 @@ h3 {
 	text-shadow: 2px 2px green;
 }
 
+	#lomakeh3{
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Yatra One', cursive;
+	color: lightgray;
+	font-weight: bolder;
+	text-shadow: 2px 2px black;
+	padding: 2px;
+	}
+
 #contentbox {
 	padding-left: 25px;
 	padding-right: 25px;
@@ -69,6 +79,11 @@ table {
 	align:center;
 }
 
+	#lomaketable{
+	width:50%;
+	margin-left:475px;
+	}
+
 #lisaa_oma {
 	align: center;
 	margin-left: 45%;
@@ -81,6 +96,10 @@ tr {
 	position:relative;
 }
 
+	.lomaketr{
+	text-align:center;
+	}
+
 th {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -91,8 +110,13 @@ th {
 
 td {
 	height:100%;
+	font-size:20px;
 	
 }
+
+	.lomaketd{
+	text-align:center;
+	}
 
 .dropbtn {
     background-color: #f0f0f0;
@@ -159,6 +183,12 @@ td {
 	padding-right: 180px;
 }
 
+/*Alla tapahtumien luontilomakkeen m‰‰ritykset*/
+
+.tapahtumalomake{
+	text-align: center;
+	margin-left:auto;
+}
 
 
 /* --- */

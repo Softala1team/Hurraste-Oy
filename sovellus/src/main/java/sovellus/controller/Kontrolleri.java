@@ -65,7 +65,7 @@ public class Kontrolleri {
 	public String luoIlmoitusLomake(Model model){
 		
 		Harrastus tyhja_h = new HarrastusImpl();
-		tyhja_h.setTapahtuma_nimi("tapahtuman nimi tähän");
+		tyhja_h.setTapahtuma_nimi(" ");
 		
 		model.addAttribute("harraste", tyhja_h);
 		

@@ -29,13 +29,16 @@ public class HarrastusImpl implements Harrastus {
 	private String loppumis_aika;
 	
 	@NotNull
-	@Size(min=1)
+	@Size(min=1, max=255)
 	private String jar_nimi;
 	
 	@Pattern(regexp="/d{10}")
 	private String puh_num;
 	
-	private String email, tapahtuma_paikka, kuvaus;
+	@Pattern(regexp="/w{1,30}[.]/w{1,30}[@]/w{1,50}[.]/w{2,4}")
+	private String email;
+	
+	private String tapahtuma_paikka, kuvaus;
 	
 	public String getTapahtuma_aika() {
 		return tapahtuma_aika;

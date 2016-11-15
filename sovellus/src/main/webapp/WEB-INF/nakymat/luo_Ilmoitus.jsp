@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE>
 <html>
 <head>
@@ -41,6 +42,7 @@ $('.valitsepvm').datetimepicker();
 	
 	<div id="otsikko">
 	<h2 style="margin-top:-75px;margin-bottom:450px">Luo oma tapahtumasi</h2>
+	<c:out value="${virheviesti}"/>
 	</div>
 </div>
 
@@ -64,7 +66,7 @@ $('.valitsepvm').datetimepicker();
 			<td class="lomaketd"><form:input path="email" name="email" placeholder="sahko.posti@osoite.fi"/></td>
 		</tr>
 		<tr class="lomaketr">
-			<td class="lomaketd"><h3 id="lomakeh3">Tapahtuman tiedot</h3>
+			<td class="lomaketd"><h3 id="lomakeh3">Tapahtuman tiedot: </h3>
 		</tr>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="tapahtuma_paikka">Tapahtuman paikka: </form:label></td>
@@ -75,7 +77,7 @@ $('.valitsepvm').datetimepicker();
 			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/></td>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="kuvaus">Tapahtuman kuvaus: </form:label></td>
-			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus" ng-model="kuvaus"/></td>
+			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus" style="height:50px;"/></td>
 		</tr>
 		
 		<tr class="lomaketr">

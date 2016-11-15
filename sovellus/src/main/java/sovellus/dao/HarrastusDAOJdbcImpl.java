@@ -52,8 +52,18 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
 				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
 		
+
+		for(int i=0;i < parametrit.length;i++){
+			
+			
+		}
 		
-		jdbcTemplate.update(sql, parametrit);
+		
+		if(parametrit.length == 10){
+			jdbcTemplate.update(sql, parametrit);
+		}else{
+			//Älä tee mtn
+		}
 
 	}
 

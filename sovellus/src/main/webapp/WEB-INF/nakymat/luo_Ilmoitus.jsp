@@ -42,54 +42,54 @@ $('.valitsepvm').datetimepicker();
 	
 	<div id="otsikko">
 	<h2 style="margin-top:-75px;margin-bottom:450px">Luo oma tapahtumasi</h2>
-	<c:out value="${virheviesti}"/>
 	</div>
 </div>
 
 <form:form modelAttribute="harraste" method="post" name="luoTapahtuma" class="tapahtumalomake">
 <table id="lomaketable">
+	<caption style="color:red; font-size:20px;"><c:out value="${virheviesti}"/></caption>
 	<thead>
 		<tr class="lomaketr">
 			<td class="lomaketd"><h3 id="lomakeh3">Järjestäjän tiedot:</h3></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="jarjestajantiedot"><form:label path="jar_nimi">Järjestäjän nimi: </form:label></td>
-			<td class="lomaketd"><form:input path="jar_nimi" name="jar_nimi" placeholder="Etunimi Sukunimi"/></td>
+			<td class="lomaketd"><form:input path="jar_nimi" name="jar_nimi" placeholder="Etunimi Sukunimi"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="puh_num">Puhelinnumero: </form:label></td>
-			<td class="lomaketd"><form:input path="puh_num" name="puh_num" placeholder="0441234567"/></td>
+			<td class="lomaketd"><form:input path="puh_num" name="puh_num" placeholder="0441234567"/><c:out value="${tietovirhe}"/></td>
 			
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="email">Sähköpostiosoite: </form:label></td>
-			<td class="lomaketd"><form:input path="email" name="email" placeholder="sahko.posti@osoite.fi"/></td>
+			<td class="lomaketd"><form:input path="email" name="email" placeholder="sahko.posti@osoite.fi"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><h3 id="lomakeh3">Tapahtuman tiedot: </h3>
 		</tr>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="tapahtuma_paikka">Tapahtuman paikka: </form:label></td>
-			<td class="lomaketd"><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/></td>
+			<td class="lomaketd"><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="tapahtuma_nimi">Tapahtuman nimi: </form:label></td>
-			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/></td>
+			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/><c:out value="${tietovirhe}"/></td>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="kuvaus">Tapahtuman kuvaus: </form:label></td>
-			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus" style="height:50px;"/></td>
+			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="tapahtuma_aika">Tapahtuman alkuaika: </form:label></td>
-			<td class="lomaketd"><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/></td>
+			<td class="lomaketd"><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/><c:out value="${tietovirhe}"/></td>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="loppumis_aika">Tapahtuman loppumisaika: </form:label>
-			<td class="lomaketd"><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/></td>
+			<td class="lomaketd"><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="max_osallistujamaara">Osallistujia enintään: </form:label></td>
-			<td class="lomaketd"><form:input id="osallistujat" path="max_osallistujamaara" name="max_osallistujamaara" ng-model="max_osallistujamaara"/>
+			<td class="lomaketd"><form:input id="osallistujat" path="max_osallistujamaara" name="max_osallistujamaara"/><c:out value="${tietovirhe}"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><button type="submit">Laita ilmoitus!</button></td>

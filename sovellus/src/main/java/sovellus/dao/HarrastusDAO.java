@@ -12,7 +12,7 @@ public interface HarrastusDAO {
 	
 	public abstract HarrastusImpl haeTietty(int tapahtumaId);
 	
-	public abstract void lisaaTapahtuma(HarrastusImpl h);
+	public abstract boolean lisaaTapahtuma(HarrastusImpl h);
 	
 	public abstract void poistaTapahtuma(HarrastusImpl h);
 

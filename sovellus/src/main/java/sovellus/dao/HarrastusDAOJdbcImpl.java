@@ -1,9 +1,13 @@
 package sovellus.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+
 import com.fasterxml.jackson.databind.JsonNode;
+
 import sovellus.bean.HarrastusImpl;
 
 public class HarrastusDAOJdbcImpl implements HarrastusDAO {
@@ -44,27 +48,24 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		return h;
 	}
 
-	public void lisaaTapahtuma(HarrastusImpl h) {
+	public boolean lisaaTapahtuma(HarrastusImpl h) {
 		
+		boolean onnistui;
 		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka)"
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
 
 		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
 				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
 		
-
-		for(int i=0;i < parametrit.length;i++){
-			
-			
-		}
-		
-		
-		if(parametrit.length == 10){
-			jdbcTemplate.update(sql, parametrit);
-		}else{
-			//Älä tee mtn
-		}
-
+			try {
+				jdbcTemplate.update(sql, parametrit);
+			} catch (Exception e) {
+				onnistui = false;
+				return onnistui;
+			}
+			onnistui = true;
+			return onnistui;
 	}
 
 	public void poistaTapahtuma(HarrastusImpl h) {

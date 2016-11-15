@@ -1,6 +1,7 @@
 package sovellus.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -70,18 +71,28 @@ public class Kontrolleri {
 		return "luo_Ilmoitus";
 	}
 	
+	//Luo lomake, jossa oikein syötetyt tiedot ovat näkyvissä
+//	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
+//	public String luoIlmoitusLomake2(Model model, HarrastusImpl h){
+//				
+//		return "luo_Ilmoitus";
+//	}
+	
 	//Luo tavallisen käyttäjän luoma harraste kalenteriin.
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.POST)
-	public String luoHarraste(@ModelAttribute(value="harraste") @Valid HarrastusImpl harraste, BindingResult tulos){
+	public String luoHarraste(@ModelAttribute(value="harraste") @Valid HarrastusImpl harraste, Model model){
 		
+		boolean onnistuiko;
 		
-			try {
-				hd.lisaaTapahtuma(harraste);
-			} catch (Exception e) {
-				return "luo_Ilmoitus";
+		onnistuiko = hd.lisaaTapahtuma(harraste);
+			if(onnistuiko == true){
+				return "index";
+			}else{
+				model.addAttribute("virheviesti", "Tapahtui virhe! Ole hyvä ja yritä uudelleen.");
+				
+				luoIlmoitusLomake(model);
 			}
-		return "index";
-			
+			return "luo_Ilmoitus";
 	}
 	
 	//Ylläpitäjän työkalu uusien harrastusten luontiin?

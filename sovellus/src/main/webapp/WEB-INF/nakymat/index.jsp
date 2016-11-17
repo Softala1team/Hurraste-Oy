@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <meta charset="ISO-8859-1">
 <title>Etusivu</title>
-<link rel="stylesheet" type="text/css" href="resources/styles/frontpage.css">
+
+<spring:url value="resources/styles/frontpage.css" var="frontpageCSS" />
+
+<link rel="stylesheet" href="${frontpageCSS}">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 
 </head>

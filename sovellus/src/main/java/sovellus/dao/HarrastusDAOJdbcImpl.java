@@ -85,7 +85,6 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 			
 			} catch (Exception e) {
 				onnistui = false;
-				
 				return onnistui;
 			}
 			onnistui = true;

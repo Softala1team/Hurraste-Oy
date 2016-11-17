@@ -56,6 +56,13 @@ public class Kontrolleri {
 	//------------------------------
 		
 
+	//Näytä etusivu
+	@RequestMapping(value="etusivu", method=RequestMethod.GET)
+	public String naytaEtusivu(){
+		
+		return "index";
+	}
+	
 	
 	//Luo tyhjä lomake käyttäjälle
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
@@ -84,14 +91,17 @@ public class Kontrolleri {
 		
 		onnistuiko = hd.lisaaTapahtuma(harraste);
 			if(onnistuiko == true){
-				return "index";
+				model.addAttribute("virheviesti", "Tapahtuman lisääminen onnistui!");
+				
+				luoIlmoitusLomake(model);
+				return "luo_Ilmoitus";
 			}else{
 				model.addAttribute("virheviesti", "Tapahtui virhe! Ole hyvä ja yritä uudelleen.");
 				
 				luoIlmoitusLomake(model);
 			}
 			return "luo_Ilmoitus";
-	}
+}
 	
 	//Ylläpitäjän työkalu uusien harrastusten luontiin?
 	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)

@@ -40,6 +40,7 @@
 			eventRender: function (event, element) {
 		        element.attr('href', 'javascript:void(0);');
 		        element.click(function() {
+		            $("#tyyppi").html(event.tyyppi);
 		            $("#startTime").html(moment(event.start).format('Do MMMM HH:mm'));
 		            $("#endTime").html(moment(event.end).format('Do MMMM HH:mm'));
 		            $("#eventInfo").html(event.description);
@@ -53,11 +54,14 @@
 		});
 
 		var json = JSON.parse('${json}');
+		var tyypit=[];
 		
 		for(var i = 0; i < json.length; i++) {
 		    var obj = json[i];
-		    console.log(obj.tapahtuman_tyyppi);
+		    var tyyppi = obj.tapahtuman_tyyppi.toLowerCase();
+		    
 		    var newEvent = {
+	                tyyppi: tyyppi,
 					title: obj.tapahtuma_nimi,
 	                start: obj.tapahtuma_aika,
 	                end: obj.loppumis_aika,
@@ -71,7 +75,21 @@
 	                //allDay: false,
 	            };
 	       $('#calendar').fullCalendar( 'renderEvent', newEvent,'stick');
+
+		    var loyty=false;
+		    for (i2 = 0; i2 < tyypit.length; i2++) {
+		        if(tyyppi==tyypit[i2]){
+		        	loyty=true;
+		        }
+		    }
+		    if (loyty==false){
+			    tyypit[tyypit.length]=tyyppi;
+		    }
+		    
 		}
+	    for (i3 = 0; i3 < tyypit.length; i3++) {
+		    document.getElementById("tyypit").innerHTML += '<a href="/sovellus/sovellus/jalkapallo/'+tyypit[i3]+'">'+tyypit[i3]+'</a>';
+	    }
 	});
 
 </script>
@@ -80,6 +98,7 @@
 <body>
 
 <div id="eventContent" title="Event Details" style="display:none;">
+    <small><span id="tyyppi"></span></small><br><br>
     Alkaa: <span id="startTime"></span><br>
     Loppuu: <span id="endTime"></span><br>
     <small>Järjestäjä: <span id="jarj"></span></small><br><br>
@@ -94,9 +113,15 @@
 
 <a href="/sovellus">Etusivu</a>
 
+<div class="navdrop">
+<button class="dropbtn">Laji / Tyyppi</button>
+<div class="navdrop-content" id="tyypit" style="left:0;">
+</div>
+</div>
+
 
 <div id="otsikko">
-<h1>Tapahtumakalenteri</h1>
+	<h1>Tapahtumakalenteri</h1>
 </div>
 </div>
 

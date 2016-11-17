@@ -102,13 +102,22 @@ public class Kontrolleri {
 	
 	//Hakukoodit jalkapallolle
 	
-	//tietty
+	//tietty tapahtuma
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
 	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
 		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
 		model.addAttribute("harrastus", harrastus);
 		
 		return "tapahtuma";
+	}
+	//tietty tyyppi
+	@RequestMapping(value="jalkapallo/{tapahtuman_tyyppi}", method=RequestMethod.GET)
+	public String haeKaikkiTietysta(@PathVariable String tapahtuman_tyyppi, Model model) {
+		
+		List<JsonNode> json = hd.haeTapahtumatJsonTyyppi(tapahtuman_tyyppi);
+		model.addAttribute("json", json);
+
+		return "jalkapallo";
 	}
 	
 	//kaikki jsoniin

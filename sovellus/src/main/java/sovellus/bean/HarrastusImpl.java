@@ -38,16 +38,16 @@ public class HarrastusImpl implements Harrastus {
 	@Pattern(regexp="/w{1,30}[.]/w{1,30}[@]/w{1,50}[.]/w{2,4}")
 	private String email;
 	
-	private String tapahtuma_paikka, kuvaus, tapahtuma_tyyppi;
+	private String tapahtuma_paikka, kuvaus, tapahtuman_tyyppi;
 	
 	
 	
-	public String getTapahtuma_tyyppi() {
-		return tapahtuma_tyyppi;
+	public String getTapahtuman_tyyppi() {
+		return tapahtuman_tyyppi;
 	}
 
-	public void setTapahtuma_tyyppi(String tapahtuma_tyyppi) {
-		this.tapahtuma_tyyppi = tapahtuma_tyyppi;
+	public void setTapahtuman_tyyppi(String tapahtuman_tyyppi) {
+		this.tapahtuman_tyyppi = tapahtuman_tyyppi;
 	}
 
 	public String getTapahtuma_aika() {

@@ -51,17 +51,31 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	public boolean lisaaTapahtuma(HarrastusImpl h) {
 		
 		boolean onnistui;
-		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka)"
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuma_tyyppi)"
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 
 		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
-				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka()};
+				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka(), h.getTapahtuma_tyyppi()};
+		
+				
+//		List<String> status = new ArrayList<String>();
+//		
+//		for (int i=0;i<parametrit.length;i++){
+//			if(parametrit[i] == ""){
+//				status.add("tyhja"+i);
+//			}else if(parametrit[i] != ""){
+//				status.add("taysi"+i);
+//			}
+//		}
+		
 		
 			try {
 				jdbcTemplate.update(sql, parametrit);
+			
 			} catch (Exception e) {
 				onnistui = false;
+				
 				return onnistui;
 			}
 			onnistui = true;

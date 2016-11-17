@@ -56,6 +56,7 @@
 		
 		for(var i = 0; i < json.length; i++) {
 		    var obj = json[i];
+		    console.log(obj.tapahtuman_tyyppi);
 		    var newEvent = {
 					title: obj.tapahtuma_nimi,
 	                start: obj.tapahtuma_aika,

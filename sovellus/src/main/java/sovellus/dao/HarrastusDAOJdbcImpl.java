@@ -51,7 +51,7 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	public boolean lisaaTapahtuma(HarrastusImpl h) {
 		
 		boolean onnistui;
-		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuma_tyyppi)"
+		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuman_tyyppi)"
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 

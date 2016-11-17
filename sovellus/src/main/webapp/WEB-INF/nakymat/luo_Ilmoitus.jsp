@@ -70,26 +70,30 @@ $('.valitsepvm').datetimepicker();
 		</tr>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="tapahtuma_paikka">Tapahtuman paikka: </form:label></td>
-			<td class="lomaketd"><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input path="tapahtuma_paikka" name="tapahtuma_paikka"/></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="tapahtuman_tyyppi">Tapahtuman tyyppi: </form:label></td>
+			<td class="lomaketd"><form:input path="tapahtuman_tyyppi" name="tapahtuman_tyyppi"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="tapahtuma_nimi">Tapahtuman nimi: </form:label></td>
-			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi" ng-model="tapahtuma_nimi"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input path="tapahtuma_nimi" name="tapahtuma_nimi"/></td>
 		<tr class="lomaketr">	
 			<td class="lomaketd"><form:label path="kuvaus">Tapahtuman kuvaus: </form:label></td>
-			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input path="kuvaus" name="kuvaus"/></td>
 		</tr>
 		
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="tapahtuma_aika">Tapahtuman alkuaika: </form:label></td>
-			<td class="lomaketd"><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input class="valitsepvm" path="tapahtuma_aika" name="tapahtuma_aika" readonly="false"/></td>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="loppumis_aika">Tapahtuman loppumisaika: </form:label>
-			<td class="lomaketd"><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input class="valitsepvm" path="loppumis_aika" name="loppumis_aika" readonly="false"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><form:label path="max_osallistujamaara">Osallistujia enintään: </form:label></td>
-			<td class="lomaketd"><form:input id="osallistujat" path="max_osallistujamaara" name="max_osallistujamaara"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:input id="osallistujat" path="max_osallistujamaara" name="max_osallistujamaara"/></td>
 		</tr>
 		<tr class="lomaketr">
 			<td class="lomaketd"><button type="submit">Laita ilmoitus!</button></td>

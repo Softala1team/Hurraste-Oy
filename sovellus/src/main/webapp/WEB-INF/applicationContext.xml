@@ -14,7 +14,7 @@
     	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     
-    <bean id="AktiviteettiDAOJdbcImpl" class="sovellus.dao.AktiviteettiDAOJdbcImpl">
+    <bean id="OsallistujaDAOJdbcImpl" class="sovellus.dao.OsallistujaDAOJdbcImpl">
     	<property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 

@@ -1,6 +1,6 @@
 CREATE TABLE TAPAHTUMA (
 tapahtuma_id SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-osallistuja_id INT NOT NULL,
+osallistuja_id INT,
 osallistujamaara SMALLINT,
 max_osallistujamaara SMALLINT,
 tapahtuma_nimi VARCHAR(255),
@@ -32,3 +32,6 @@ REFERENCES OSALLISTUJA (osallistuja_id);
 ALTER TABLE OSALLISTUJA
 ADD FOREIGN KEY (tapahtuma_id)
 REFERENCES TAPAHTUMA (tapahtuma_id);
+
+ALTER TABLE TAPAHTUMA
+MODIFY COLUMN osallistuja_id INT;

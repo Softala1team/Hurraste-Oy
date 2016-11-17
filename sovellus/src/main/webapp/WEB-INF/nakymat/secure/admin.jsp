@@ -11,8 +11,11 @@
 <title>Admin sivu</title>
 </head>
 <body>
-
-
+<div id="header">
+<a href="/sovellus">
+<img src="../resources/images/home2.png" alt="etusivu" style="height:75px;width:70px;padding:3px;border:2px solid grey;border-radius:700px;box-shadow:5px 5px 2px 2px #888888;">
+</a>
+</div>
 
 </body>
 </html>

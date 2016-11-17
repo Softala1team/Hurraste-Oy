@@ -90,14 +90,6 @@ public class HarrastusImpl implements Harrastus {
 		this.max_osallistujamaara = max_osallistujamaara;
 	}
 
-	public int getAktiiviId() {
-		return aktiiviId;
-	}
-
-	public void setAktiiviId(int aktiiviId) {
-		this.aktiiviId = aktiiviId;
-	}
-
 	public String getTapahtuma_nimi() {
 		return tapahtuma_nimi;
 	}

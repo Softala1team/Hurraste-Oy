@@ -1,7 +1,6 @@
 package sovellus.controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import sovellus.bean.AktiviteettiImpl;
+import sovellus.bean.OsallistujaImpl;
 import sovellus.bean.Harrastus;
 import sovellus.bean.HarrastusImpl;
-import sovellus.dao.AktiviteettiDAOJdbcImpl;
+import sovellus.dao.OsallistujaDAOJdbcImpl;
 import sovellus.dao.HarrastusDAOJdbcImpl;
 
 @Controller
@@ -29,13 +27,13 @@ public class Kontrolleri {
 	
 	//-----------------------------
 	@Inject
-	private AktiviteettiDAOJdbcImpl ad;
+	private OsallistujaDAOJdbcImpl ad;
 
-	public AktiviteettiDAOJdbcImpl getAd() {
+	public OsallistujaDAOJdbcImpl getAd() {
 		return ad;
 	}
 
-	public void setAd(AktiviteettiDAOJdbcImpl ad) {
+	public void setAd(OsallistujaDAOJdbcImpl ad) {
 		this.ad = ad;
 	}
 	
@@ -97,7 +95,7 @@ public class Kontrolleri {
 	
 	//Ylläpitäjän työkalu uusien harrastusten luontiin?
 	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
-	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") AktiviteettiImpl aktiviteetti){
+	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") OsallistujaImpl aktiviteetti){
 		
 		
 	}

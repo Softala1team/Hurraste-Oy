@@ -35,3 +35,12 @@ REFERENCES TAPAHTUMA (tapahtuma_id);
 
 ALTER TABLE TAPAHTUMA
 MODIFY COLUMN osallistuja_id INT;
+
+CREATE TABLE KAYTTAJA (
+id integer NOT NULL auto_increment PRIMARY KEY,
+username varchar(255) NOT NULL UNIQUE,
+password_encrypted varchar(255) NOT NULL,
+enabled tinyint NOT NULL,
+firstname varchar(255) default NULL,
+lastname varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

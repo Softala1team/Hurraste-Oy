@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import sovellus.bean.Osallistuja;
 import sovellus.bean.OsallistujaImpl;
 import sovellus.bean.Harrastus;
 import sovellus.bean.HarrastusImpl;
@@ -64,63 +66,90 @@ public class Kontrolleri {
 	}
 	
 	
-	//Luo tyhjä lomake käyttäjälle
+	//Luo tyhjä ilmoituslomake käyttäjälle
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
-	public String luoIlmoitusLomake(Model model){
+	public String luoIlmoitusLomake(ModelMap model){
 		
-		Harrastus tyhja_h = new HarrastusImpl();
-		tyhja_h.setTapahtuma_nimi(" ");
+		/*Harrastus tyhja_h = new HarrastusImpl();
+		tyhja_h.setTapahtuma_nimi("");*/
 		
-		model.addAttribute("harraste", tyhja_h);
+		model.addAttribute("harraste", new HarrastusImpl());
 		
 		return "luo_Ilmoitus";
 	}
-	
-	//Luo lomake, jossa oikein syötetyt tiedot ovat näkyvissä
-//	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
-//	public String luoIlmoitusLomake2(Model model, HarrastusImpl h){
-//				
-//		return "luo_Ilmoitus";
-//	}
+		
 	
 	//Luo tavallisen käyttäjän luoma harraste kalenteriin.
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.POST)
-	public String luoHarraste(@ModelAttribute(value="harraste") @Valid HarrastusImpl harraste, Model model){
+	public String luoHarraste(@ModelAttribute(value="harraste") @Valid HarrastusImpl harraste, ModelMap model){
 		
 		boolean onnistuiko;
 		
 		onnistuiko = hd.lisaaTapahtuma(harraste);
 			if(onnistuiko == true){
-				model.addAttribute("virheviesti", "Tapahtuman lisääminen onnistui!");
+				model.addAttribute("viesti", "Tapahtuman lisääminen onnistui!");
+				model.addAttribute("vari", "DarkGreen");
 				
 				luoIlmoitusLomake(model);
-				return "luo_Ilmoitus";
+				
 			}else{
-				model.addAttribute("virheviesti", "Tapahtui virhe! Ole hyvä ja yritä uudelleen.");
+				model.addAttribute("viesti", "Tapahtui virhe! Ole hyvä ja yritä uudelleen.");
+				model.addAttribute("vari", "red");
 				
 				luoIlmoitusLomake(model);
 			}
 			return "luo_Ilmoitus";
 }
 	
-	//Ylläpitäjän työkalu uusien harrastusten luontiin?
-	@RequestMapping(value="luoAktiviteetti", method=RequestMethod.POST)
-	public void luoAktiviteetti(@ModelAttribute(value="aktiviteetti") OsallistujaImpl aktiviteetti){
+	//Luo tyhjä osallistumislomake käyttäjälle
+	@RequestMapping(value="osallistu", method=RequestMethod.GET)
+	public String luoOsallistumisLomake(ModelMap model){
 		
+		Osallistuja tyhja_o = new OsallistujaImpl();
+		tyhja_o.setEtunimi(" ");
 		
-	}
-	
-	//Hakukoodit jalkapallolle
-	
-	//tietty tapahtuma
-	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
-	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
-		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
-		model.addAttribute("harrastus", harrastus);
+		model.addAttribute("osallistuja", tyhja_o);
 		
 		return "tapahtuma";
 	}
-	//tietty tyyppi
+	
+	//Lisää osallistuja tapahtumaan
+	@RequestMapping(value="osallistu", method=RequestMethod.POST)
+	public String teeOsallistuminen(@ModelAttribute(value="osallistuja") @Valid OsallistujaImpl osallistuja, ModelMap model){
+		
+		boolean ok = false;
+		
+		//ok = ad.lisaaOsallistuja(osallistuja, tapahtuma_id);
+		
+		if(ok == true){
+			model.addAttribute("vari", "DarkGreen");
+			model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
+			
+			luoOsallistumisLomake(model);
+		}else{
+			model.addAttribute("vari", "red");
+			model.addAttribute("viesti", "Osallistumisessa tapahtui virhe.");
+			
+			luoOsallistumisLomake(model);
+		}
+		
+		return "tapahtuma";
+	}
+
+		
+	//Hae tietty tapahtuma
+	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
+	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
+		
+		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
+		model.addAttribute("harrastus", harrastus);
+		
+		luoOsallistumisLomake(new ModelMap());
+		
+		return "tapahtuma";
+	}
+		
+	//Hae tietty tyyppi
 	@RequestMapping(value="jalkapallo/{tapahtuman_tyyppi}", method=RequestMethod.GET)
 	public String haeKaikkiTietysta(@PathVariable String tapahtuman_tyyppi, Model model) {
 		
@@ -130,7 +159,7 @@ public class Kontrolleri {
 		return "jalkapallo";
 	}
 	
-	//kaikki jsoniin
+	//Hae kaikki jsoniin
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		

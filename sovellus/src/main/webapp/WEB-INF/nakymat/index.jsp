@@ -50,5 +50,8 @@
 
 <br>
 <br>
+<div id="footer">
+<a href=sovellus/adminlogin>Login</a>
+</div>
 </body>
 </html>

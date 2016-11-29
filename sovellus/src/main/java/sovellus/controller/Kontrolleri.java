@@ -169,13 +169,5 @@ public class Kontrolleri {
 			
 		return "jalkapallo";
 	}
-	
-	//admin p‰‰sivu
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String paasivu(Model model) {
-		return "sovellus/admin";
-	}
-	
-
 
 }

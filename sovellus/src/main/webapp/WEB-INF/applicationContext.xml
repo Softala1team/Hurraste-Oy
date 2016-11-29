@@ -43,8 +43,8 @@
 		<sec:intercept-url pattern="/*" access="permitAll" />
 
 		<sec:form-login
-			login-page="/loginpage"
-			default-target-url="/secure/main"
+			login-page="/login"
+			default-target-url="/secure/admin"
 			authentication-failure-url="/loginfail" />
 			
 		<sec:logout logout-success-url="/logout" />

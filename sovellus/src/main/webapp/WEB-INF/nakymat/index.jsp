@@ -51,7 +51,7 @@
 <br>
 <br>
 <div id="footer">
-<a href=sovellus/loginpage>Login</a>
+<a href=sovellus/login>Login</a>
 </div>
 </body>
 </html>

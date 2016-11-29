@@ -112,7 +112,7 @@ public class Kontrolleri {
 	
 	//Lis‰‰ osallistuja tapahtumaan
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.POST)
-	public String teeOsallistuminen(@ModelAttribute(value="{tapahtuma_id}") @Valid OsallistujaImpl osallistuja, ModelMap model){
+	public String teeOsallistuminen(@ModelAttribute(value="{tapahtuma_id}") @Valid OsallistujaImpl osallistuja,@PathVariable Integer tapahtuma_id, ModelMap model){
 		
 		boolean ok = false;
 				
@@ -123,6 +123,7 @@ public class Kontrolleri {
 			model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
 			
 			luoOsallistumisLomake(model);
+			
 		}else{
 			model.addAttribute("vari", "red");
 			model.addAttribute("viesti", "Osallistumisessa tapahtui virhe.");
@@ -130,6 +131,8 @@ public class Kontrolleri {
 			luoOsallistumisLomake(model);
 		}
 		
+		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
+		model.addAttribute("harrastus", harrastus);
 		return "tapahtuma";
 	}
 

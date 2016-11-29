@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import sovellus.bean.Osallistuja;
 import sovellus.bean.OsallistujaImpl;
 import sovellus.bean.Harrastus;
 import sovellus.bean.HarrastusImpl;

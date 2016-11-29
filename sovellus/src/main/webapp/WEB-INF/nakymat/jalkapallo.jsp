@@ -7,16 +7,16 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<script src='../resources/jquery.min.js'></script>
+<script src='<%=request.getContextPath()%>/resources/jquery.min.js'></script>
 <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css' rel='stylesheet' />
 <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.print.css' rel='stylesheet' media='print' />
-<link href='../resources/jquery-ui.min.css' rel='stylesheet' type='text/css'>
-<script src='../resources/moment.min.js'></script>
+<link href='<%=request.getContextPath()%>/resources/jquery-ui.min.css' rel='stylesheet' type='text/css'>
+<script src='<%=request.getContextPath()%>/resources/moment.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.js'></script>
-<script src='../resources/fi.js'></script>
-<script src='../resources/jquery-ui.min.js'></script>
+<script src='<%=request.getContextPath()%>/resources/fi.js'></script>
+<script src='<%=request.getContextPath()%>/resources/jquery-ui.min.js'></script>
 
-<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<link href="<%=request.getContextPath()%>/resources/styles/style.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet"> 
 <script>
 
@@ -87,9 +87,14 @@
 		    }
 		    
 		}
-	    for (i3 = 0; i3 < tyypit.length; i3++) {
-		    document.getElementById("tyypit").innerHTML += '<a href=/sovellus/sovellus/jalkapallo/'+tyypit[i3]+'>'+tyypit[i3]+'</a>';
-	    }
+		if (tyypit.length==1){
+			document.getElementById("tyypitotsikko").innerHTML = tyypit[0];
+			document.getElementById("tyypit").innerHTML += '<a href=/sovellus/sovellus/jalkapallo/>Näytä kaikki</a>';
+		} else {
+		    for (i3 = 0; i3 < tyypit.length; i3++) {
+			    document.getElementById("tyypit").innerHTML += '<a href=/sovellus/sovellus/jalkapallo/'+tyypit[i3]+'>'+tyypit[i3]+'</a>';
+		    }
+		}
 	});
 
 </script>
@@ -112,13 +117,13 @@
 
 
 <div class="navdrop">
-<button class="dropbtn">Laji / Tyyppi</button>
+<button class="dropbtn" id="tyypitotsikko">Laji / Tyyppi</button>
 <div class="navdrop-content" id="tyypit" style="left:0;">
 </div>
 </div>
 
 <a href="/sovellus">
-<img src="../resources/images/home2.png" alt="etusivu" style="height:75px;width:70px;padding:3px;border:2px solid grey;border-radius:700px;box-shadow:5px 5px 2px 2px #888888;">
+<img src="<%=request.getContextPath()%>/resources/images/home2.png" alt="etusivu" style="height:75px;width:70px;padding:3px;border:2px solid grey;border-radius:700px;box-shadow:5px 5px 2px 2px #888888;">
 </a>
 
 

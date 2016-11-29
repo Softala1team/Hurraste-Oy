@@ -166,7 +166,5 @@ public class Kontrolleri {
 			
 		return "jalkapallo";
 	}
-	
-
 
 }

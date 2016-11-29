@@ -103,34 +103,35 @@ public class Kontrolleri {
 	
 	//Luo tyhj‰ osallistumislomake k‰ytt‰j‰lle
 	@RequestMapping(value="osallistu", method=RequestMethod.GET)
-	public String luoOsallistumisLomake(ModelMap model){
+	public String luoOsallistumisLomake(Model model){
 		
-		Osallistuja tyhja_o = new OsallistujaImpl();
-		tyhja_o.setEtunimi(" ");
+		/*Osallistuja tyhja_o = new OsallistujaImpl();
+		tyhja_o.setEtunimi(" ");*/
 		
-		model.addAttribute("osallistuja", tyhja_o);
+		model.addAttribute("osallistuja", new OsallistujaImpl());
 		
 		return "tapahtuma";
 	}
 	
 	//Lis‰‰ osallistuja tapahtumaan
 	@RequestMapping(value="osallistu", method=RequestMethod.POST)
-	public String teeOsallistuminen(@ModelAttribute(value="osallistuja") @Valid OsallistujaImpl osallistuja, ModelMap model){
+	public String teeOsallistuminen(@ModelAttribute(value="osallistuja") @Valid OsallistujaImpl osallistuja, ModelMap model, Model MODEL){
 		
 		boolean ok = false;
+		int tapahtuma_id = 11;
 		
-		//ok = ad.lisaaOsallistuja(osallistuja, tapahtuma_id);
+		ok = ad.lisaaOsallistuja(osallistuja, tapahtuma_id);
 		
 		if(ok == true){
 			model.addAttribute("vari", "DarkGreen");
 			model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
 			
-			luoOsallistumisLomake(model);
+			luoOsallistumisLomake(MODEL);
 		}else{
 			model.addAttribute("vari", "red");
 			model.addAttribute("viesti", "Osallistumisessa tapahtui virhe.");
 			
-			luoOsallistumisLomake(model);
+			luoOsallistumisLomake(MODEL);
 		}
 		
 		return "tapahtuma";
@@ -144,7 +145,7 @@ public class Kontrolleri {
 		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
 		model.addAttribute("harrastus", harrastus);
 		
-		luoOsallistumisLomake(new ModelMap());
+		luoOsallistumisLomake(model);
 		
 		return "tapahtuma";
 	}

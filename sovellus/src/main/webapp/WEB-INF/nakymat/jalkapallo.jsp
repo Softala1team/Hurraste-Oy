@@ -88,7 +88,7 @@
 		    
 		}
 	    for (i3 = 0; i3 < tyypit.length; i3++) {
-		    document.getElementById("tyypit").innerHTML += '<a href="/sovellus/sovellus/jalkapallo/'+tyypit[i3]+'">'+tyypit[i3]+'</a>';
+		    document.getElementById("tyypit").innerHTML += '<a href=/sovellus/sovellus/jalkapallo/'+tyypit[i3]+'>'+tyypit[i3]+'</option>';
 	    }
 	});
 
@@ -113,8 +113,8 @@
 
 <div class="navdrop">
 <button class="dropbtn">Laji / Tyyppi</button>
-<div class="navdrop-content" id="tyypit" style="left:0;">
-</div>
+<select class="navdrop-content" id="tyypit" style="left:0;">
+</select>
 </div>
 
 <a href="/sovellus">

@@ -28,7 +28,8 @@
 // 	  });
 //   });
 $(function(){
-$('.valitsepvm').datetimepicker();
+$('.valitsepvm').datetimepicker({
+	});
 });
 
 </script>
@@ -49,7 +50,7 @@ $('.valitsepvm').datetimepicker();
 
 <form:form modelAttribute="harraste" method="post" name="luoTapahtuma" class="tapahtumalomake">
 <table id="lomaketable">
-	<caption style="color:red; font-size:20px;"><c:out value="${virheviesti}"/></caption>
+	<caption style="color:${vari}; font-size:20px;"><c:out value="${viesti}"/></caption>
 	<thead>
 		<tr class="lomaketr">
 			<td class="lomaketd"><h3 id="lomakeh3">Järjestäjän tiedot:</h3></td>

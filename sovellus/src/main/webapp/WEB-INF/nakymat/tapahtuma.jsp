@@ -2,6 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,20 +40,31 @@
 	<p>Osallistujia:<br>${harrastus.osallistujamaara}/${harrastus.max_osallistujamaara}<br><small>esim merkki<br>matti esim</small></p>
 </div>
 
-<form:form modelAttribute="x" method="post" name="x">
+<form:form modelAttribute="osallistuja" method="post" name="osallistuja">
 <table id="lomaketable">
-	<caption style="color:red; font-size:20px;"><c:out value="${virheviesti}"/></caption>
+	<caption style="color:${vari}; font-size:20px;"><c:out value="${viesti}"/></caption>
 	<thead>
-		<tr>
-			<td class="lomaketd"><h3 id="lomakeh3">Osallistu:</h3></td>
-		</tr>
-		<tr>
-			<td class="jarjestajantiedot"><form:label path="jar_nimi">Nimi: </form:label></td>
-			<td class="lomaketd"><form:input path="jar_nimi" name="jar_nimi" placeholder="Etunimi Sukunimi"/><c:out value="${tietovirhe}"/></td>
+		<tr class="lomaketr">
+			<th class="lomaketd" colspan="2"><h3 id="lomakeh3">Osallistu:</h3></th>
 		</tr>
 		<tr class="lomaketr">
-			<td class="lomaketd"><form:label path="puh_num">Puhelinnumero: </form:label></td>
-			<td class="lomaketd"><form:input path="puh_num" name="puh_num" placeholder="0441234567"/><c:out value="${tietovirhe}"/></td>
+			<td class="lomaketd"><form:label path="etunimi">Etunimi: </form:label></td>
+			<td class="lomaketd"><form:input path="etunimi" name="etunimi" /></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="sukunimi">Sukunimi: </form:label></td>
+			<td class="lomaketd"><form:input path="sukunimi" name="sukunimi" /></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="puh_nro">Puhelinnumero: </form:label></td>
+			<td class="lomaketd"><form:input path="puh_nro" name="puh_nro"/></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="jarjestajantiedot"><form:label path="email">Sähköposti: </form:label></td>
+			<td class="lomaketd"><form:input path="email" name="email" /></td>
+		</tr>
+		<tr>
+			<td class="lomaketd"><button type="submit">Osallistu tästä</button></td>
 		</tr>
 	</thead>
 </table>

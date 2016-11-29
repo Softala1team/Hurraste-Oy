@@ -51,12 +51,13 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 	}
 
 
-	public boolean lisaaOsallistuja(OsallistujaImpl o, int osallisena_tapahtumaan) {
+	public boolean lisaaOsallistuja(OsallistujaImpl o) {
 		
 		boolean onnistuiko = false;
-		String sql="insert into OSALLISTUJA(tapahtuma_id, etunimi, sukunimi, puh_nro, email) values(?,?,?,?,?,?)";
+		String sql="insert into OSALLISTUJA(tapahtuma_id, etunimi, sukunimi, puh_nro, email) values(?,?,?,?,?)";
 		
-		Object[] parametrit = new Object[] {osallisena_tapahtumaan, o.getOsallistujaId(), o.getEtunimi(), o.getSukunimi(), o.getPuh_nro(), o.getEmail()};
+		
+		Object[] parametrit = new Object[] {o.getTapahtuma_id(), o.getEtunimi(), o.getSukunimi(), o.getPuh_nro(), o.getEmail()};
 		
 		try {
 			jdbcTemplate.update(sql, parametrit);

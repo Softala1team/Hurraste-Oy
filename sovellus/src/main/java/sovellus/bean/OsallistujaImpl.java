@@ -3,6 +3,7 @@ package sovellus.bean;
 public class OsallistujaImpl implements Osallistuja {
 
 	private int osallistuja_id;
+	private int tapahtuma_id;
 	private String etunimi, sukunimi, puh_nro, email;
 	
 
@@ -64,6 +65,21 @@ public class OsallistujaImpl implements Osallistuja {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+
+	public int getTapahtuma_id() {
+		return tapahtuma_id;
+	}
+
+
+	public void setTapahtuma_id(int tapahtuma_id) {
+		this.tapahtuma_id = tapahtuma_id;
+	}
+	
+	
+
+
 	
 	
 

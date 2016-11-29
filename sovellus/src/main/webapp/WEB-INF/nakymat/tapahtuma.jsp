@@ -60,8 +60,12 @@
 			<td class="lomaketd"><form:input path="puh_nro" name="puh_nro"/></td>
 		</tr>
 		<tr class="lomaketr">
-			<td class="jarjestajantiedot"><form:label path="email">Sähköposti: </form:label></td>
+			<td class="lomaketd"><form:label path="email">Sähköposti: </form:label></td>
 			<td class="lomaketd"><form:input path="email" name="email" /></td>
+		</tr>
+		<tr class="lomaketr">
+			<td class="lomaketd"><form:label path="tapahtuma_id">Osallistut tapahtumaan nro: </form:label></td>
+			<td class="lomaketd"><form:input path="tapahtuma_id" disabled="true" value="${harrastus.tapahtumaId}"></form:input></td>
 		</tr>
 		<tr>
 			<td class="lomaketd"><button type="submit">Osallistu tästä</button></td>

@@ -9,7 +9,7 @@ public interface OsallistujaDAO {
 	
 	public abstract OsallistujaImpl haeTietty(int osallistuja_id);
 	
-	public abstract boolean lisaaOsallistuja(OsallistujaImpl o, int osallisena_tapahtumaa);
+	public abstract boolean lisaaOsallistuja(OsallistujaImpl o);
 	
 	public abstract void poistaOsallistuja(OsallistujaImpl o);
 

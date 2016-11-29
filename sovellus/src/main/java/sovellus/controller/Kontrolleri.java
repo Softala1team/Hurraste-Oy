@@ -103,35 +103,31 @@ public class Kontrolleri {
 	
 	//Luo tyhj‰ osallistumislomake k‰ytt‰j‰lle
 	@RequestMapping(value="osallistu", method=RequestMethod.GET)
-	public String luoOsallistumisLomake(Model model){
-		
-		/*Osallistuja tyhja_o = new OsallistujaImpl();
-		tyhja_o.setEtunimi(" ");*/
-		
+	public String luoOsallistumisLomake(ModelMap model){
+
 		model.addAttribute("osallistuja", new OsallistujaImpl());
-		
+
 		return "tapahtuma";
 	}
 	
 	//Lis‰‰ osallistuja tapahtumaan
-	@RequestMapping(value="osallistu", method=RequestMethod.POST)
-	public String teeOsallistuminen(@ModelAttribute(value="osallistuja") @Valid OsallistujaImpl osallistuja, ModelMap model, Model MODEL){
+	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.POST)
+	public String teeOsallistuminen(@ModelAttribute(value="{tapahtuma_id}") @Valid OsallistujaImpl osallistuja, ModelMap model){
 		
 		boolean ok = false;
-		int tapahtuma_id = 11;
-		
-		ok = ad.lisaaOsallistuja(osallistuja, tapahtuma_id);
+				
+		ok = ad.lisaaOsallistuja(osallistuja);
 		
 		if(ok == true){
 			model.addAttribute("vari", "DarkGreen");
 			model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
 			
-			luoOsallistumisLomake(MODEL);
+			luoOsallistumisLomake(model);
 		}else{
 			model.addAttribute("vari", "red");
 			model.addAttribute("viesti", "Osallistumisessa tapahtui virhe.");
 			
-			luoOsallistumisLomake(MODEL);
+			luoOsallistumisLomake(model);
 		}
 		
 		return "tapahtuma";
@@ -140,7 +136,7 @@ public class Kontrolleri {
 		
 	//Hae tietty tapahtuma
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
-	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, Model model){
+	public String haeTiettyHarrastus(@PathVariable Integer tapahtuma_id, ModelMap model){
 		
 		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
 		model.addAttribute("harrastus", harrastus);

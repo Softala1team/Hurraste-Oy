@@ -131,8 +131,7 @@ public class Kontrolleri {
 			luoOsallistumisLomake(model);
 		}
 		
-		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
-		model.addAttribute("harrastus", harrastus);
+		haeTiettyHarrastus(tapahtuma_id, model);
 		return "tapahtuma";
 	}
 

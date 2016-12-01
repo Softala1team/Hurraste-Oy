@@ -17,14 +17,12 @@ background: lightblue;
 </head>
 <body>
 <div id="header">
+<h3>SUOJATTU PÄÄSIVU</h3>
+<p>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></p>
 </div>
-<h1>SUOJATTU PÄÄSIVU</h1>
 
-<h3>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></h3>
 
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-<p><a href="admin/tools">Admin tools</a></p>
-</sec:authorize>
+
 
 
 <p><a href="/sovellus">Pääsivu</a></p>

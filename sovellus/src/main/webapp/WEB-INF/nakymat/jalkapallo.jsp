@@ -123,7 +123,7 @@
 </div>
 
 <a href="/sovellus">
-<img src="<%=request.getContextPath()%>/resources/images/home2.png" alt="etusivu" style="height:75px;width:70px;padding:3px;border:2px solid grey;border-radius:700px;box-shadow:5px 5px 2px 2px #888888;">
+<img src="<%=request.getContextPath()%>/resources/images/home2.png" alt="etusivu" style="margin-left:1500px;height:75px;width:70px;padding:3px;border:2px solid grey;border-radius:700px;box-shadow:5px 5px 2px 2px #888888;">
 </a>
 
 

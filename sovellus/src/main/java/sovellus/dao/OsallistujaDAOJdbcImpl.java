@@ -49,6 +49,17 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 		
 		return o;
 	}
+	
+	public List<OsallistujaImpl> haeOsallistujatTietysta(int tapahtumaId) {
+		
+		String sql = "select * from OSALLISTUJA where tapahtuma_id = ?";
+
+		Object[] parametrit = new Object[] { tapahtumaId };
+		RowMapper<OsallistujaImpl> mappaaja = new OsallistujaRowMapper();
+		List<OsallistujaImpl> osallistujat =jdbcTemplate.query(sql, parametrit, mappaaja);
+		
+		return osallistujat;
+	}
 
 
 	public boolean lisaaOsallistuja(OsallistujaImpl o) {

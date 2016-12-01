@@ -59,7 +59,10 @@
 		for(var i = 0; i < json.length; i++) {
 		    var obj = json[i];
 		    var tyyppi = obj.tapahtuman_tyyppi.toLowerCase();
-		    
+			var colori="green";
+		    if(obj.osallistujamaara>=obj.max_osallistujamaara){
+		    	colori="red";
+		    }
 		    var newEvent = {
 	                tyyppi: tyyppi,
 					title: obj.tapahtuma_nimi,
@@ -70,7 +73,7 @@
 	                jarj: obj.jar_nimi,
 	                osallistujia: obj.osallistujamaara+'/'+obj.max_osallistujamaara,
 	                urli: '/sovellus/sovellus/'+obj.tapahtuma_id,
-	                color: 'green'
+	                color: colori
 	                //textColor:
 	                //allDay: false,
 	            };
@@ -85,7 +88,6 @@
 		    if (loyty==false){
 			    tyypit[tyypit.length]=tyyppi;
 		    }
-		    
 		}
 		if (tyypit.length==1){
 			document.getElementById("tyypitotsikko").innerHTML = tyypit[0];

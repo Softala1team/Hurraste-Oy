@@ -39,9 +39,19 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		String sql = "select * from TAPAHTUMA where hyvaksytty is not null";
 		RowMapper<HarrastusImpl> map = new HarrastusRowMapper();
 		List<HarrastusImpl> harrastukset = jdbcTemplate.query(sql, map);
+		System.out.println(harrastukset);
 		
 		return harrastukset;
 	}
+	
+/**	public List<HarrastusImpl> haeKaikkiAdminille(){
+		
+		String sql = "select * from TAPAHTUMA";
+		RowMapper<HarrastusImpl> map = new HarrastusRowMapper();
+		List<HarrastusImpl> adminille = jdbcTemplate.query(sql, map);
+		
+		return adminille;
+	}*/
 	
 	public List<JsonNode> haeTapahtumatJsonTyyppi(String tapahtuman_tyyppi){
 		

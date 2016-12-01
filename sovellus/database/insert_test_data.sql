@@ -1,7 +1,7 @@
 INSERT INTO TAPAHTUMA
 	(max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuman_tyyppi, hyvaksytty)
 VALUES
-	('4','Jalkapalloa','Lilja Kuikka','0401254567','lilja.kuikka@sposti.fi','2016-12-10 14:00:00','2016-12-10 16:00:00','Tule pelaamaan jalkapalloa pienen porukan kanssa!','K‰pyl‰n urheilukentt‰','Urheilu','1');
+	('3','Koodausta','Lilja Kuikka','0401253567','lilja.kuikka@sposti.fi','2016-12-21 10:00:00','2016-12-21 13:00:00','Pidet‰‰n koodaus taidot kunnossa lomallakin!','Kirjasto','Ohjelmointi','1');
 
 	
 INSERT INTO

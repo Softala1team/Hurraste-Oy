@@ -14,6 +14,13 @@ body {
 background: lightblue;
 }
 </style>
+
+<script>
+
+
+
+</script>
+
 </head>
 <body>
 <div id="header">
@@ -21,12 +28,30 @@ background: lightblue;
 <p>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></p>
 </div>
 
+       <div align="center">
+           <h4>Tapahtumat</h4>
+           
+           <table border="1">
+               <th>No</th>
+               <th>jar_nimi</th>
+               <th>tapahtuma_paikka</th>
+               <c:forEach var="tapahtuma" items="${listTapahtuma}" varStatus="status">
+               <tr>
 
+                   <td>${status.index + 1}</td>
 
+                   <td>${tapahtuma.jar_nimi}</td>
 
+                   <td>${tapahtuma.tapahtuma_paikka}</td>
 
+               </tr>
+               </c:forEach>       
+           </table>
+       </div>
+
+<div id="footer">
 <p><a href="/sovellus">Pääsivu</a></p>
-<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p> <!-- href?? -->
-
+<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p> <!-- tarvitaanko?? -->
+</div>
 </body>
 </html>

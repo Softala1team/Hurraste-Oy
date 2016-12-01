@@ -54,10 +54,14 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 	public boolean lisaaOsallistuja(OsallistujaImpl o) {
 		
 		boolean onnistuiko = false;
+		Object[] parametrit;
 		String sql="insert into OSALLISTUJA(tapahtuma_id, etunimi, sukunimi, puh_nro, email) values(?,?,?,?,?)";
 		
-		
-		Object[] parametrit = new Object[] {o.getTapahtuma_id(), o.getEtunimi(), o.getSukunimi(), o.getPuh_nro(), o.getEmail()};
+		if(o.getEtunimi() != null || o.getSukunimi() != null || o.getPuh_nro() != null || o.getEmail() != null){
+			parametrit = new Object[] {o.getTapahtuma_id(), o.getEtunimi(), o.getSukunimi(), o.getPuh_nro(), o.getEmail()};
+		}else{
+			return onnistuiko;
+		}
 		
 		try {
 			jdbcTemplate.update(sql, parametrit);

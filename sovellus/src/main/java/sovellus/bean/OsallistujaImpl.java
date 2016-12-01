@@ -1,10 +1,29 @@
 package sovellus.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class OsallistujaImpl implements Osallistuja {
 
+	@NotNull
 	private int osallistuja_id;
+	
+	@NotNull
 	private int tapahtuma_id;
-	private String etunimi, sukunimi, puh_nro, email;
+	
+	@NotNull
+	private String etunimi;
+	
+	@NotNull
+	private String sukunimi;
+	
+	@NotNull
+	@Pattern(regexp="/d{10}")
+	private String puh_nro;
+	
+	@NotNull
+	@Pattern(regexp="/w{1,30}[.]/w{1,30}[@]/w{1,50}[.]/w{2,4}")
+	private String email;
 	
 
 	public int getOsallistujaId() {

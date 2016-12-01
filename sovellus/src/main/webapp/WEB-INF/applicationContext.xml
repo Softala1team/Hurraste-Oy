@@ -8,8 +8,6 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
 	
-	
-	
 <!-- 	<import resource="spring-data.xml" /> -->
 
 	<context:property-placeholder location="classpath*:/db_connection.properties" />
@@ -53,17 +51,15 @@
 	
 	<bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-
 	<sec:authentication-manager>
 		<sec:authentication-provider>
 			<sec:password-encoder ref="encoder" />
 			<sec:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select username, password_encrypted, enabled from KAYTTAJA where username=? and enabled = 1"/>
-			</sec:authentication-provider>
+				users-by-username-query="select username, password_encrypted, enabled from KAYTTAJA where username=? and enabled = 1"
+					authorities-by-username-query="select u.username, a.role from KAYTTAJA u JOIN webuser_authority ua ON (u.id = ua.webuser_id) JOIN authority a ON (a.id = ua.authority_id) WHERE u.username = ?" />
+		</sec:authentication-provider>
 	</sec:authentication-manager>
 
 	<sec:global-method-security pre-post-annotations="enabled" />
-	
-
 
 </beans>

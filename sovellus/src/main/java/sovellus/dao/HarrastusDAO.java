@@ -6,8 +6,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import sovellus.bean.HarrastusImpl;
 
+/**
+ * <p>T‰m‰ on HarrastusDAO:n m‰‰ritt‰v‰ rajapinta, eli "todellisen" HarrastusDAO:n on toteutettava n‰m‰ metodit.</p>
+ * 
+ * @author team
+ * @version 1.0 
+ * */
+
 public interface HarrastusDAO {
-	
+
 	public List<HarrastusImpl> haeKaikkiListaan();
 	
 	public abstract List<JsonNode> haeTapahtumatJson();

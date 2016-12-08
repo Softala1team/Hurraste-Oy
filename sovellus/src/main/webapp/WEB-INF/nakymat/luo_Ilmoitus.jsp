@@ -29,6 +29,10 @@
 //   });
 $(function(){
 $('.valitsepvm').datetimepicker({
+	minDate:0,
+	step:10,
+	minTime:0,
+	dayOfWeekStart:1
 	});
 });
 

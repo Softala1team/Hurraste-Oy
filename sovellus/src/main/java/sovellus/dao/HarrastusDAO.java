@@ -18,6 +18,6 @@ public interface HarrastusDAO {
 	
 	public abstract boolean lisaaTapahtuma(HarrastusImpl h);
 	
-	public abstract void poistaTapahtuma(HarrastusImpl h);
+	public abstract HarrastusImpl poistaTapahtuma(int tapahtumaId);
 
 }

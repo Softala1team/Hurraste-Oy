@@ -2,6 +2,7 @@
 <html>
 <head>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta charset="ISO-8859-1">
 <title>Etusivu</title>
 
@@ -52,6 +53,7 @@
 <br>
 <div id="footer">
 <a href=sovellus/login>Login</a>
+
 </div>
 </body>
 </html>

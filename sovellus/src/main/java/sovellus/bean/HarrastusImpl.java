@@ -10,7 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class HarrastusImpl implements Harrastus {
 	
-	private int tapahtumaId, max_osallistujamaara;
+	private int tapahtumaId, max_osallistujamaara, hyvaksytty;
 //	
 //	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
 //					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
@@ -130,6 +130,13 @@ public class HarrastusImpl implements Harrastus {
 		this.loppumis_aika = loppumis_aika;
 	}
 
+	public int getHyvaksytty() {
+		return hyvaksytty;
+	}
+	
+	public void setHyvaksytty(int hyvaksytty) {
+		this.hyvaksytty = hyvaksytty;
+	}
 	
 
 	

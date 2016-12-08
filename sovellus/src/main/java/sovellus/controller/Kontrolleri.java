@@ -159,17 +159,6 @@ public class Kontrolleri {
 		return "jalkapallo";
 	}
 	
-	//Hae kaikki admin-sivulle
-	@RequestMapping(value="admin/{tapahtuman_tyyppi}", method=RequestMethod.GET)
-	public String haeKaikkiListaan(@PathVariable String tapahtuman_tyyppi, Model model) {
-		System.out.println("does this happen");
-		List<HarrastusImpl> listTapahtuma = hd.haeKaikkiListaan();
-		System.out.println(listTapahtuma);
-		model.addAttribute("listTapahtuma", listTapahtuma);
-
-		return "admin";
-	}
-	
 	//Hae kaikki jsoniin
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {

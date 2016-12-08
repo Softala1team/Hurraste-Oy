@@ -36,7 +36,7 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	
 	public List<HarrastusImpl> haeKaikkiListaan(){
 		
-		String sql = "select * from TAPAHTUMA where hyvaksytty is not null";
+		String sql = "select * from TAPAHTUMA";
 		RowMapper<HarrastusImpl> map = new HarrastusRowMapper();
 		List<HarrastusImpl> harrastukset = jdbcTemplate.query(sql, map);
 		System.out.println(harrastukset);
@@ -110,15 +110,43 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 			return onnistui;
 	}
 
-	public void poistaTapahtuma(HarrastusImpl h) {
+	/*public void poistaTapahtuma(int tapahtumaId) {
 		
 		int pois = h.getTapahtumaId();
+		
+		System.out.println("Look at this");
 		
 		String sql="delete from TAPAHTUMA where tapahtuma_id='"+pois+"'";
 		
 		jdbcTemplate.execute(sql);
 		
+	}*/
+	
+	
+	public HarrastusImpl poistaTapahtuma(int tapahtumaId) {
+
+		String sql = "delete from TAPAHTUMA where tapahtuma_id=?";
+		
+		Object[] parametrit = new Object[] { tapahtumaId };
+		
+		RowMapper<HarrastusImpl> mappaaja = new HarrastusRowMapper();
+		
+	    HarrastusImpl h = jdbcTemplate.queryForObject(sql , parametrit, mappaaja);
+		
+		
+		return h;
 	}
+	
+	public void hyvaksyTapahtuma(HarrastusImpl h) {
+		
+		int hyvaksy = h.getTapahtumaId();
+		
+		String sql="update TAPAHTUMA SET hyvaksytty=1 WHERE tapahtuma_id='"+hyvaksy+"'";
+		
+		jdbcTemplate.execute(sql);
+	}
+
+
 	
 
 }

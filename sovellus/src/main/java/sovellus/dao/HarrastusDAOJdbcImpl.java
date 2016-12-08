@@ -27,7 +27,7 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		
 	public List<JsonNode> haeTapahtumatJson(){
 		
-		String sql = "select * from TAPAHTUMA";
+		String sql = "select * from TAPAHTUMA where hyvaksytty is not null";
 		RowMapper<JsonNode> mappaaja = new JsonKaantajaRowMapper();
 		List<JsonNode> json = jdbcTemplate.query(sql, mappaaja);
 		
@@ -36,16 +36,26 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	
 	public List<HarrastusImpl> haeKaikkiListaan(){
 		
-		String sql = "select * from TAPAHTUMA";
+		String sql = "select * from TAPAHTUMA where hyvaksytty is not null";
 		RowMapper<HarrastusImpl> map = new HarrastusRowMapper();
 		List<HarrastusImpl> harrastukset = jdbcTemplate.query(sql, map);
+		System.out.println(harrastukset);
 		
 		return harrastukset;
 	}
 	
+/**	public List<HarrastusImpl> haeKaikkiAdminille(){
+		
+		String sql = "select * from TAPAHTUMA";
+		RowMapper<HarrastusImpl> map = new HarrastusRowMapper();
+		List<HarrastusImpl> adminille = jdbcTemplate.query(sql, map);
+		
+		return adminille;
+	}*/
+	
 	public List<JsonNode> haeTapahtumatJsonTyyppi(String tapahtuman_tyyppi){
 		
-		String sql = "select * from TAPAHTUMA where tapahtuman_tyyppi = ?";
+		String sql = "select * from TAPAHTUMA where tapahtuman_tyyppi = ? and hyvaksytty is not null";
 		Object[] parametrit = new Object[] { tapahtuman_tyyppi };
 		RowMapper<JsonNode> mappaaja = new JsonKaantajaRowMapper();
 		List<JsonNode> json = jdbcTemplate.query(sql, parametrit, mappaaja);
@@ -70,11 +80,11 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	public boolean lisaaTapahtuma(HarrastusImpl h) {
 		
 		boolean onnistui;
-		final String sql="insert into TAPAHTUMA(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuman_tyyppi)"
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		final String sql="insert into TAPAHTUMA(max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuman_tyyppi)"
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 
-		Object[] parametrit = new Object[] {h.getOsallistujamaara(),h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
+		Object[] parametrit = new Object[] {h.getMax_osallistujamaara(), h.getTapahtuma_nimi(), h.getJar_nimi(),
 				h.getPuh_num(), h.getEmail(), h.getTapahtuma_aika(), h.getLoppumis_aika(), h.getKuvaus(), h.getTapahtuma_paikka(), h.getTapahtuman_tyyppi()};
 		
 				

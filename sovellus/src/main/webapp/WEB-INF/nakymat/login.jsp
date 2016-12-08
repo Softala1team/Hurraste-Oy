@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -8,16 +7,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SisÃ¤Ã¤nkirjautuminen</title>
-<link href="../resources/styles/style.css" rel="stylesheet" type="text/css">
+<title>Sisäänkirjautuminen</title>
+<link href="../resources/styles/frontpage.css" rel="stylesheet" type="text/css">
+
+<style>
+body {
+background: lightblue;
+}
+</style>
 </head>
 <body>
 
+<a href="/sovellus">Etusivu</a>
+
 <div id="sisalto">
-	<h1>KIRJAUDU SISÃ„Ã„N</h1>
+	<h1>KIRJAUDU SISÄÄN</h1>
 
 	<c:if test="${not empty loginerror}">
-		<p class="Error">SisÃ¤Ã¤nkirjautuminen epÃ¤onnistui. KÃ¤yttÃ¤jÃ¤tunnus tai salasana on syÃ¶tetty vÃ¤Ã¤rin.</p>
+		<p class="Error">Sisäänkirjautuminen epäonnistui. Käyttäjätunnus tai salasana on syötetty väärin.</p>
 	</c:if>
 
 	<c:if test="${not empty loggedout}">
@@ -34,6 +41,7 @@
 	</fieldset>
 	</form>
 	</div>
+	
 
 </body>
 </html>

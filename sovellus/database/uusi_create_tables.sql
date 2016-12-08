@@ -1,7 +1,7 @@
 CREATE TABLE TAPAHTUMA (
 tapahtuma_id SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 osallistuja_id INT,
-osallistujamaara SMALLINT,
+hyvaksytty SMALLINT,
 max_osallistujamaara SMALLINT,
 tapahtuma_nimi VARCHAR(255),
 jar_nimi VARCHAR(255),

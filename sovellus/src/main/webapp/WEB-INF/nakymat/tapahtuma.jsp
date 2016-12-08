@@ -37,7 +37,7 @@
 	    &q=${harrastus.tapahtuma_paikka}" allowfullscreen>
 	</iframe>-->
 	<p>${harrastus.jar_nimi}</p>
-	<p>Osallistujia:<br>${harrastus.osallistujamaara}/${harrastus.max_osallistujamaara}<br><small>esim merkki<br>matti esim</small></p>
+	<p>Osallistujia:<br>jaaa/${harrastus.max_osallistujamaara}<br><small>esim merkki<br>matti esim</small></p>
 </div>
 
 <form:form modelAttribute="osallistuja" method="post" name="osallistuja">

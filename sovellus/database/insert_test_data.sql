@@ -1,18 +1,22 @@
-INSERT INTO AKTIVITEETTI 
-	(aktiivi_nimi)
-VALUES
-	('Jalkapallo'),
-	('Kutominen'),
-	('Salibandy'),
-	('Ruoanlaitto');
-
 INSERT INTO TAPAHTUMA
-	(osallistujamaara, max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, aktiivi_id)
+	(max_osallistujamaara, tapahtuma_nimi, jar_nimi, puh_num, email, tapahtuma_aika, loppumis_aika, kuvaus, tapahtuma_paikka, tapahtuman_tyyppi, hyvaksytty)
 VALUES
-	('0','2','Jalkapalloa','Juha Kuikka','0401234567','juha-kuikka@sposti.fi','2016-11-10 16:00:00','2016-11-10 17:00:00','Tule pelaamaan jalkapalloa pienen porukan kanssa!','K‰pyl‰n urheilukentt‰','1');
+	('3','Koodausta','Lilja Kuikka','0401253567','lilja.kuikka@sposti.fi','2016-12-21 10:00:00','2016-12-21 13:00:00','Pidet‰‰n koodaus taidot kunnossa lomallakin!','Kirjasto','Ohjelmointi','1');
 
+	
+INSERT INTO
+	authority
+VALUES
+	(2,'ROLE_ADMIN'),
+	(1,'ROLE_USER');
 	
 INSERT INTO KAYTTAJA
 	(id, username, password_encrypted, enabled, firstname, lastname)
 VALUES 
 	('1','hurradmin','9d5d9e8b634113a6aa05628d6fb37a05447878520ef7e912d43a2e5dc981f2e187a90daa3319dbb4','1','Heikki','Hurra');
+
+INSERT INTO
+	webuser_authority
+VALUES
+	(1,1,1),
+	(2,1,2);

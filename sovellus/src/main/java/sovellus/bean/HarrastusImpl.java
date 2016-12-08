@@ -10,7 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class HarrastusImpl implements Harrastus {
 	
-	private int tapahtumaId,osallistujamaara, max_osallistujamaara;
+	private int tapahtumaId, max_osallistujamaara;
 //	
 //	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
 //					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
@@ -71,14 +71,6 @@ public class HarrastusImpl implements Harrastus {
 
 	public void setTapahtumaId(int tapahtumaId) {
 		this.tapahtumaId = tapahtumaId;
-	}
-
-	public int getOsallistujamaara() {
-		return osallistujamaara;
-	}
-
-	public void setOsallistujamaara(int osallistujamaara) {
-		this.osallistujamaara = osallistujamaara;
 	}
 
 	public int getMax_osallistujamaara() {

@@ -1,6 +1,7 @@
 package sovellus.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -130,8 +132,7 @@ public class Kontrolleri {
 			luoOsallistumisLomake(model);
 		}
 		
-		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
-		model.addAttribute("harrastus", harrastus);
+		haeTiettyHarrastus(tapahtuma_id, model);
 		return "tapahtuma";
 	}
 
@@ -156,6 +157,17 @@ public class Kontrolleri {
 		model.addAttribute("json", json);
 
 		return "jalkapallo";
+	}
+	
+	//Hae kaikki admin-sivulle
+	@RequestMapping(value="admin/{tapahtuman_tyyppi}", method=RequestMethod.GET)
+	public String haeKaikkiListaan(@PathVariable String tapahtuman_tyyppi, Model model) {
+		System.out.println("does this happen");
+		List<HarrastusImpl> listTapahtuma = hd.haeKaikkiListaan();
+		System.out.println(listTapahtuma);
+		model.addAttribute("listTapahtuma", listTapahtuma);
+
+		return "admin";
 	}
 	
 	//Hae kaikki jsoniin

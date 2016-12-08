@@ -17,7 +17,6 @@ public class HarrastusRowMapper implements RowMapper<HarrastusImpl>{
 		h.setTapahtumaId(rs.getInt("tapahtuma_id"));
 		h.setTapahtuma_nimi(rs.getString("tapahtuma_nimi"));
 		h.setTapahtuman_tyyppi(rs.getString("tapahtuman_tyyppi"));
-		h.setOsallistujamaara(rs.getInt("osallistujamaara"));
 		h.setMax_osallistujamaara(rs.getInt("max_osallistujamaara"));
 		h.setJar_nimi(rs.getString("jar_nimi"));
 		h.setPuh_num(rs.getString("puh_num"));

@@ -8,6 +8,8 @@ import sovellus.bean.HarrastusImpl;
 
 public interface HarrastusDAO {
 	
+	public List<HarrastusImpl> haeKaikkiListaan();
+	
 	public abstract List<JsonNode> haeTapahtumatJson();
 	
 	public abstract List<JsonNode> haeTapahtumatJsonTyyppi(String tapahtuman_tyyppi);

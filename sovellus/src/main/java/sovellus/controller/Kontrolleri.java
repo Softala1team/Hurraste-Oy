@@ -25,7 +25,17 @@ import sovellus.bean.HarrastusImpl;
 import sovellus.dao.OsallistujaDAOJdbcImpl;
 import sovellus.dao.HarrastusDAOJdbcImpl;
 
-@Controller
+/**
+ * <p>T‰m‰ on Kontrolleri, joka ohjaa sivun toimintaa.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * @param ad	OsallistujaDAOJdbcTemplate-olio, jonka avulla k‰ytet‰‰n tietokantatoimintoja k‰sitelless‰ osallistujaa.
+ * @param hd	HarrastusDAOJdbcTemplate-olio, jonka avulla k‰ytet‰‰n tietokantatoimintoja k‰sitelless‰ harrastuksia.
+ * 
+ * */
+ @Controller
 @RequestMapping (value="/sovellus")
 public class Kontrolleri {
 	

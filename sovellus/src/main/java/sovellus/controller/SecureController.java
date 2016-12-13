@@ -12,10 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import sovellus.bean.Harrastus;
 import sovellus.bean.HarrastusImpl;
 import sovellus.dao.HarrastusDAO;
 import sovellus.dao.HarrastusDAOJdbcImpl;
+
+import sovellus.bean.HarrastusImpl;
+import sovellus.dao.HarrastusDAOJdbcImpl;
+
 
 @Controller
 @RequestMapping(value = "/secure")
@@ -71,6 +76,7 @@ public class SecureController {
 		model.addAttribute("h",h);
 		return "secure/admin";
 	}
+	
 	/**
 	//Hae kaikki admin-sivulle
 	@RequestMapping(value="/admin")

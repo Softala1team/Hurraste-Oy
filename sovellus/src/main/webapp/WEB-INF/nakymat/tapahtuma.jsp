@@ -37,10 +37,10 @@
 	    &q=${harrastus.tapahtuma_paikka}" allowfullscreen>
 	</iframe>-->
 	<p>${harrastus.jar_nimi}</p>
-	<p>Osallistujia:<br>${harrastus.osallistujamaara}/${harrastus.max_osallistujamaara}<br><small>esim merkki<br>matti esim</small></p>
+	<h4 id="jostaynna"></h4>
+	<p>Osallistujia:<br>${osallistujia}/${harrastus.max_osallistujamaara}<br><small><br>${osallistujat}</small></p>
 </div>
-
-<form:form modelAttribute="osallistuja" method="post" name="osallistuja">
+<form:form id="lomake" modelAttribute="osallistuja" method="post" name="osallistuja" style="visibility: hidden;">
 <table id="lomaketable">
 	<caption style="color:${vari}; font-size:20px;"><c:out value="${viesti}"/></caption>
 	<thead>
@@ -64,8 +64,8 @@
 			<td class="lomaketd"><form:input path="email" name="email" /></td>
 		</tr>
 		<tr class="lomaketr">
-			<td class="lomaketd"><form:label path="tapahtuma_id">Osallistut tapahtumaan nro: </form:label></td>
-			<td class="lomaketd"><form:input path="tapahtuma_id" disabled="true" value="${harrastus.tapahtumaId}"></form:input></td>
+			<td class="lomaketd" style="visibility: hidden;"><form:label path="tapahtuma_id">Osallistut tapahtumaan nro: </form:label></td>
+			<td class="lomaketd" style="visibility: hidden;"><form:input path="tapahtuma_id" disabled="true" value="${harrastus.tapahtumaId}"></form:input></td>
 		</tr>
 		<tr>
 			<td class="lomaketd"><button type="submit">Osallistu tästä</button></td>
@@ -76,9 +76,7 @@
 
 </div>
 <script>
-console.log('id: ${harrastus.tapahtumaId} Loppumisaika: ${harrastus.loppumis_aika}');
 if (moment('${harrastus.tapahtuma_aika}').isSame('${harrastus.loppumis_aika}', 'day')) {
-	//console.log("on sama päivä");
 	var pvm = moment('${harrastus.tapahtuma_aika}').format('DD.MM.YYYY<br>HH:mm');
 	var lpvm = moment('${harrastus.loppumis_aika}').format('HH:mm');
 	document.getElementById("aika").innerHTML = '<small>Aikataulu</small><br>'+pvm+" - "+lpvm;
@@ -86,6 +84,11 @@ if (moment('${harrastus.tapahtuma_aika}').isSame('${harrastus.loppumis_aika}', '
 	var pvm = moment('${harrastus.tapahtuma_aika}').format('DD.MM.YYYY HH:mm');
 	var lpvm = moment('${harrastus.loppumis_aika}').format('DD.MM.YYYY HH:mm');
 	document.getElementById("aika").innerHTML = '<small>Alkaa</small><br>'+pvm+"<br><small>Loppuu</small><br>"+lpvm;
+}
+if (parseInt("${osallistujia}")<parseInt("${harrastus.max_osallistujamaara}")){
+	document.getElementById("lomake").style.visibility = "visible";
+} else {
+	document.getElementById("jostaynna").innerHTML="Tapahtuma on täynnä!";
 }
 </script>
 </body>

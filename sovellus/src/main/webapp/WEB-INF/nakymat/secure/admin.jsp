@@ -79,7 +79,13 @@ font-size: 17px;
        </div>
 
 <div id="footer">
+
 <p><a href="/sovellus">P‰‰sivulle ja kirjaudu ulos</a></p>
+
+<p><a href="/sovellus">P‰‰sivu</a></p>
+<p><a href="/haeKaikki">P‰ivit‰ kaikki tapahtumat</a></p>
+<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p> <!-- tarvitaanko?? -->
+
 </div>
 </body>
 </html>

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import sovellus.bean.OsallistujaImpl;
 import sovellus.bean.Harrastus;
@@ -34,8 +36,7 @@ import sovellus.dao.HarrastusDAOJdbcImpl;
  * @param hd	HarrastusDAOJdbcTemplate-olio, jonka avulla k‰ytet‰‰n tietokantatoimintoja k‰sitelless‰ harrastuksia.
  * 
  * */
-
-@Controller
+ @Controller
 @RequestMapping (value="/sovellus")
 public class Kontrolleri {
 	
@@ -180,20 +181,25 @@ public class Kontrolleri {
 		ok = ad.lisaaOsallistuja(osallistuja);
 		
 		if(ok == true){
-			model.addAttribute("vari", "DarkGreen");
-			model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
+			//model.addAttribute("vari", "DarkGreen");
+			//model.addAttribute("viesti", "Olet osallistunut tapahtumaan!");
 			
-			luoOsallistumisLomake(model);
-			
+			//luoOsallistumisLomake(model);
+		    return "redirect:/sovellus/"+tapahtuma_id;
+			//^ muuten voi refreshaa sivun ja l‰hett‰‰ tiedot uudelleen ja menn‰ yli max osallistujam‰‰r‰n
 		}else{
 			model.addAttribute("vari", "red");
 			model.addAttribute("viesti", "Osallistumisessa tapahtui virhe.");
-			
 			luoOsallistumisLomake(model);
 		}
 		
 		haeTiettyHarrastus(tapahtuma_id, model);
 		return "tapahtuma";
+	}
+	
+	@RequestMapping(value = "/number",  method = RequestMethod.GET)
+	public String category(){
+	    return "number";
 	}
 
 	/**
@@ -215,6 +221,17 @@ public class Kontrolleri {
 		
 		Harrastus harrastus = hd.haeTietty(tapahtuma_id);
 		model.addAttribute("harrastus", harrastus);
+
+		List<OsallistujaImpl> osa = ad.haeOsallistujatTietysta(tapahtuma_id);
+
+		String osallistujat="";
+		int osallistujia=0;
+		for (int i = 0; i < osa.size(); i++) {
+			osallistujat+=osa.get(i).getEtunimi()+" "+osa.get(i).getSukunimi()+"<br>";
+			osallistujia++;
+		}
+		model.addAttribute("osallistujat", osallistujat);
+		model.addAttribute("osallistujia", osallistujia);
 		
 		luoOsallistumisLomake(model);
 		
@@ -236,12 +253,18 @@ public class Kontrolleri {
 	public String haeKaikkiTietysta(@PathVariable String tapahtuman_tyyppi, Model model) {
 		
 		List<JsonNode> json = hd.haeTapahtumatJsonTyyppi(tapahtuman_tyyppi);
+		
+		//osallistujam‰‰r‰t n‰kyviin. Ps. olen welho
+				for (int i = 0; i < json.size(); i++) {
+					List<OsallistujaImpl> osa = ad.haeOsallistujatTietysta(Integer.parseInt((json.get(i).get("tapahtuma_id")).toString()));
+					((ObjectNode) json.get(i)).put("osallistujamaara", osa.size());
+				}
+		
 		model.addAttribute("json", json);
 
 		return "jalkapallo";
 	}
 	
-
 	/**
 	 * <p>Metodi <code>haeKaikkiListaan</code> hakee kaikki tapahtumat ja tuo ne listana admin-sivuille.
 	 * 
@@ -274,12 +297,20 @@ public class Kontrolleri {
 	 * @see HarrastusDAOJdbcImpl
 	 * 
 	 * */
+	
 	//Hae kaikki jsoniin
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {
 		
 
-		List<JsonNode> json = hd.haeTapahtumatJson();	
+		List<JsonNode> json = hd.haeTapahtumatJson();
+		
+		//osallistujam‰‰r‰t n‰kyviin. Ps. olen welho
+		for (int i = 0; i < json.size(); i++) {
+			List<OsallistujaImpl> osa = ad.haeOsallistujatTietysta(Integer.parseInt((json.get(i).get("tapahtuma_id")).toString()));
+			((ObjectNode) json.get(i)).put("osallistujamaara", osa.size());
+		}
+		
 		model.addAttribute("json", json);
 			
 		return "jalkapallo";

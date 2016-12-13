@@ -3,6 +3,15 @@ package sovellus.bean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+/**
+ * <p>Tämä on Osallistuja-rajapinnan toteuttava, eli implementoiva luokka.</p>
+ * <br>
+ * <p>Luokan tietojen validointi hoidetaan javaxin validation annotitaatioilla.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * */
+
 public class OsallistujaImpl implements Osallistuja {
 
 	@NotNull

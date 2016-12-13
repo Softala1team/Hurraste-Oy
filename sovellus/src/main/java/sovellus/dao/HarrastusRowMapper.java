@@ -7,8 +7,24 @@ import org.springframework.jdbc.core.RowMapper;
 
 import sovellus.bean.HarrastusImpl;
 
+/**
+ * <p>T‰m‰ on HarrastusRowMapper, jonka avulla luodaan harrastus-olio.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * */
+
 public class HarrastusRowMapper implements RowMapper<HarrastusImpl>{
 
+	/**
+	 * <p><code>mapRow</code> lis‰‰ kaikki saamansa tiedot HarrastusImpl-olioon ja palauttaa olion lopuksi.</p>
+	 * 
+	 * @param rs		Kannasta saadut tulosrivit.
+	 * @param rowNum	Tulosrivien m‰‰r‰.
+	 * @param h			Luotava harrastus-olio.
+	 * */
+	
 	public HarrastusImpl mapRow(ResultSet rs, int rowNum) throws SQLException {
 		//Alustetaan harrastus...
 		HarrastusImpl h = new HarrastusImpl();

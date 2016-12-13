@@ -24,6 +24,17 @@ import sovellus.bean.HarrastusImpl;
 import sovellus.dao.OsallistujaDAOJdbcImpl;
 import sovellus.dao.HarrastusDAOJdbcImpl;
 
+/**
+ * <p>T‰m‰ on Kontrolleri, joka ohjaa sivun toimintaa.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * @param ad	OsallistujaDAOJdbcTemplate-olio, jonka avulla k‰ytet‰‰n tietokantatoimintoja k‰sitelless‰ osallistujaa.
+ * @param hd	HarrastusDAOJdbcTemplate-olio, jonka avulla k‰ytet‰‰n tietokantatoimintoja k‰sitelless‰ harrastuksia.
+ * 
+ * */
+
 @Controller
 @RequestMapping (value="/sovellus")
 public class Kontrolleri {
@@ -59,6 +70,14 @@ public class Kontrolleri {
 	//------------------------------
 		
 
+	/**
+	 * <p>Metodi <code>naytaEtusivu</code> palauttaa etusivun. Ei k‰ytet‰ normaalisti.</p>
+	 * 
+	 * 
+	 * @return palauttaa polun etusivun jsp-sivulle.
+	 * 
+	 * */
+	
 	//N‰yt‰ etusivu
 	@RequestMapping(value="etusivu", method=RequestMethod.GET)
 	public String naytaEtusivu(){
@@ -66,6 +85,14 @@ public class Kontrolleri {
 		return "index";
 	}
 	
+	/**
+	 * <p>Metodi <code>luoIlmoitusLomake</code> palauttaa tyhj‰n lomakkeen, jolla k‰ytt‰j‰ voi lis‰t‰ oman tapahtumansa.</p>
+	 * 
+	 * @param model		ModelMap-olio, jolla asetetaan attribuutteja jsp-sivulle.
+	 * 
+	 * @return palauttaa String-muotoisen polun etusivun jsp-sivulle.
+	 * 
+	 * */
 	
 	//Luo tyhj‰ ilmoituslomake k‰ytt‰j‰lle
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.GET)
@@ -79,6 +106,17 @@ public class Kontrolleri {
 		return "luo_Ilmoitus";
 	}
 		
+	
+	/**
+	 * <p>Metodi <code>luoHarraste</code> ottaa vastaan tapahtuman luontilomakkeeseen syˆtetyt tiedot ja yritt‰‰ lis‰t‰ ne tietokantaan.</p><br>
+	 * <p>Riippuen kantaan lis‰‰misen, eli harrasteen luonnin, onnistumisesta n‰ytet‰‰n viesti. Lopuksi annetaan uusi tyhj‰ lomake.</p>
+	 * 
+	 * @param model		ModelMap-olio, jolla asetetaan attribuutteja jsp-sivulle.
+	 * @param harraste	HarrastusImpl-olio, joka yritet‰‰n lis‰t‰ kantaan.
+	 * 
+	 * @return palauttaa String-muotoisen polun lomakkeen jsp-sivulle.
+	 * 
+	 * */
 	
 	//Luo tavallisen k‰ytt‰j‰n luoma harraste kalenteriin.
 	@RequestMapping(value="luoIlmoitus", method=RequestMethod.POST)
@@ -102,6 +140,16 @@ public class Kontrolleri {
 			return "luo_Ilmoitus";
 }
 	
+	
+	/**
+	 * <p>Metodi <code>luoOsallistumisLomake</code> palauttaa tyhj‰n lomakkeen, jolla k‰ytt‰j‰ voi osallistua tapahtumaan.</p>
+	 * 
+	 * @param model		ModelMap-olio, jolla asetetaan attribuutteja jsp-sivulle.
+	 * 
+	 * @return palauttaa String-muotoisen polun tapahtuman jsp-sivulle, jolla lomake sijaitsee.
+	 * 
+	 * */
+	
 	//Luo tyhj‰ osallistumislomake k‰ytt‰j‰lle
 	@RequestMapping(value="osallistu", method=RequestMethod.GET)
 	public String luoOsallistumisLomake(ModelMap model){
@@ -110,6 +158,18 @@ public class Kontrolleri {
 
 		return "tapahtuma";
 	}
+	
+	/**
+	 * <p>Metodi <code>teeOsallistuminen</code> ottaa vastaan osallistujan lomakkeeseen syˆtetyt tiedot ja yritt‰‰ lis‰t‰ ne tietokantaan.</p><br>
+	 * <p>Riippuen kantaan lis‰‰misen, eli osallistumisen lis‰‰misen, onnistumisesta n‰ytet‰‰n viesti. Lopuksi annetaan uusi tyhj‰ lomake.</p>
+	 * 
+	 * @param model			ModelMap-olio, jolla asetetaan attribuutteja jsp-sivulle.
+	 * @param osallistuja	OsallistujaImpl-olio, joka yritet‰‰n lis‰t‰ kantaan.
+	 * @param tapahtuma_id	Tapahtuma, johon osallistuja haluaa osallistua.
+	 * 
+	 * @return palauttaa String-muotoisen polun tapahtuman jsp-sivulle.
+	 * 
+	 * */
 	
 	//Lis‰‰ osallistuja tapahtumaan
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.POST)
@@ -136,6 +196,18 @@ public class Kontrolleri {
 		return "tapahtuma";
 	}
 
+	/**
+	 * <p>Metodi <code>haeTiettyHarrastus</code> hakee tapahtuman sivulle tiedot kyseess‰ olevasta harrastuksesta kannasta. Lopuksi annetaan tyhj‰
+	 * lomake <code>luoOsallistumisLomake</code>-metodilla.
+	 * 
+	 * @param model			ModelMap-olio, jolla asetetaan attribuutteja jsp-sivulle.
+	 * @param tapahtuma_id	Tapahtuma, johon osallistuja haluaa osallistua.
+	 * 
+	 * @return palauttaa String-muotoisen polun tapahtuman jsp-sivulle.
+	 * 
+	 * @see luoOsallistumisLomake
+	 * 
+	 * */
 		
 	//Hae tietty tapahtuma
 	@RequestMapping(value="{tapahtuma_id}", method=RequestMethod.GET)
@@ -149,6 +221,16 @@ public class Kontrolleri {
 		return "tapahtuma";
 	}
 		
+	/**
+	 * <p>Metodi <code>haeKaikkiTietysta</code> hakee kaikki tietynlaiset tapahtumat ja tuo ne json-muodossa jsp:lle.
+	 * 
+	 * @param model					Model-olio, jolla asetetaan attribuutti jsp-sivulle.
+	 * @param tapahtuman_tyyppi		Tapahtuman tietty tyyppi, jonka avulla se suodatetaan.
+	 * 
+	 * @return palauttaa String-muotoisen polun kalenterin jsp-sivulle.
+	 * 
+	 * */
+	
 	//Hae tietty tyyppi
 	@RequestMapping(value="jalkapallo/{tapahtuman_tyyppi}", method=RequestMethod.GET)
 	public String haeKaikkiTietysta(@PathVariable String tapahtuman_tyyppi, Model model) {
@@ -159,6 +241,39 @@ public class Kontrolleri {
 		return "jalkapallo";
 	}
 	
+
+	/**
+	 * <p>Metodi <code>haeKaikkiListaan</code> hakee kaikki tapahtumat ja tuo ne listana admin-sivuille.
+	 * 
+	 * @param model					Model-olio, jolla asetetaan attribuutti jsp-sivulle.
+	 * @param listTapahtuma			Lista, johon kootaan kaikki harrastukset.
+	 * 
+	 * @return palauttaa String-muotoisen polun admin-sivulle.
+	 * 
+	 * */
+	
+	//Hae kaikki admin-sivulle
+	@RequestMapping(value="admin/{tapahtuman_tyyppi}", method=RequestMethod.GET)
+	public String haeKaikkiListaan(@PathVariable String tapahtuman_tyyppi, Model model) {
+		System.out.println("does this happen");
+		List<HarrastusImpl> listTapahtuma = hd.haeKaikkiListaan();
+		System.out.println(listTapahtuma);
+		model.addAttribute("listTapahtuma", listTapahtuma);
+
+		return "admin";
+	}
+	
+	/**
+	 * <p>Metodi <code>haeKaikki</code> hakee kaikki tapahtumat ja tuo ne json-muodossa jsp:lle.
+	 * 
+	 * @param model					Model-olio, jolla asetetaan attribuutti jsp-sivulle.
+	 * @param json					JSON-objekti, johon on koottu kaikki tapahtumat/harrastukset.
+	 * 
+	 * @return palauttaa String-muotoisen polun kalenterin jsp-sivulle.
+	 * 
+	 * @see HarrastusDAOJdbcImpl
+	 * 
+	 * */
 	//Hae kaikki jsoniin
 	@RequestMapping(value="jalkapallo", method=RequestMethod.GET)
 	public String haeKaikki(Model model) {

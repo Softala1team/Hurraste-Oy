@@ -6,11 +6,18 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+/**
+ * <p>Tämä on Harrastus-rajapinnan toteuttava, eli implementoiva luokka.</p>
+ * <br>
+ * <p>Luokan tietojen validointi hoidetaan javaxin validation annotitaatioilla.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * */
 
 public class HarrastusImpl implements Harrastus {
 	
-	private int tapahtumaId, max_osallistujamaara, hyvaksytty;
+	private int tapahtumaId, osallistujamaara, max_osallistujamaara, hyvaksytty;
 //	
 //	private String tapahtuma_nimi, jar_nimi, puh_num, email, pvm,
 //					tapahtuma_aika, loppumis_aika, tapahtuma_paikka, kuvaus;
@@ -130,6 +137,7 @@ public class HarrastusImpl implements Harrastus {
 		this.loppumis_aika = loppumis_aika;
 	}
 
+
 	public int getHyvaksytty() {
 		return hyvaksytty;
 	}
@@ -137,6 +145,15 @@ public class HarrastusImpl implements Harrastus {
 	public void setHyvaksytty(int hyvaksytty) {
 		this.hyvaksytty = hyvaksytty;
 	}
+
+	public int getOsallistujamaara() {
+		return osallistujamaara;
+	}
+
+	public void setOsallistujamaara(int osallistujamaara) {
+		this.osallistujamaara = osallistujamaara;
+	}
+
 	
 
 	

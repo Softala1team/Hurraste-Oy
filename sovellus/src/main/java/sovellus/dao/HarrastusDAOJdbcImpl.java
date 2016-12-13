@@ -10,6 +10,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import sovellus.bean.HarrastusImpl;
 
+/**
+ * <p>T‰m‰ on HarrastusDAO:n JdbcTemplatella toteuttava luokka.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * */
+
 public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 
 	JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -25,6 +33,17 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 	
 //---------------------------------------------
 		
+	/**
+	 * <p>Metodi <code>haeTapahtumatJson</code> hakee tiedot harrastuksista tietokannasta ja k‰ytt‰‰ JsonKaantajaRowMapperia tehd‰kseen JSON-objektin.</p>
+	 * 
+	 * @param sql		Toteutettava sql-lause.
+	 * @param mappaaja	Json-k‰‰nt‰j‰, katso lis‰tietoja: @see JsonKaantajaRowMapper.
+	 * @param json		Listamuotoinen JSON-objekti, joka tehd‰‰n jdbcTemplatea k‰ytt‰m‰ll‰.
+	 * 
+	 * @return palauttaa listamuotoisen JSON-objektin.
+	 * 
+	 * */
+	
 	public List<JsonNode> haeTapahtumatJson(){
 		
 		String sql = "select * from TAPAHTUMA where hyvaksytty is not null";
@@ -33,6 +52,17 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		
 		return json;
 	}
+	
+	/**
+	 * <p>Metodi <code>haeKaikkiListaan</code> hakee tiedot harrastuksista tietokannasta ja k‰ytt‰‰ HarrastusRowMapperia tehd‰kseen listan niist‰.</p>
+	 * 
+	 * @param sql		Toteutettava sql-lause.
+	 * @param mappaaja	Harrastuksia k‰sittelev‰ RowMapper, katso lis‰tietoja: @see HarrastusRowMapper.
+	 * @param harrastukset		Lista harrastuksista, joka muodostetaan mappaajalla.
+	 * 
+	 * @return palauttaa listan harrastuksista.
+	 * 
+	 * */
 	
 	public List<HarrastusImpl> haeKaikkiListaan(){
 		
@@ -53,6 +83,18 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		return adminille;
 	}*/
 	
+	/**
+	 * <p>Metodi <code>haeTapahtumatJsonTyyppi</code> hakee tiedot tietyist‰ harrastuksista tietokannasta ja k‰ytt‰‰ JsonKaantajaRowMapperia tehd‰kseen JSON-objektin.</p>
+	 * 
+	 * @param tapahtuman_tyyppi	Etsitt‰vien tapahtumien tyyppi.
+	 * @param sql		Toteutettava sql-lause.
+	 * @param mappaaja	Json-k‰‰nt‰j‰, katso lis‰tietoja: @see JsonKaantajaRowMapper.
+	 * @param json		Listamuotoinen JSON-objekti, joka tehd‰‰n jdbcTemplatea k‰ytt‰m‰ll‰.
+	 * 
+	 * @return palauttaa listamuotoisen JSON-objektin.
+	 * 
+	 * */
+	
 	public List<JsonNode> haeTapahtumatJsonTyyppi(String tapahtuman_tyyppi){
 		
 		String sql = "select * from TAPAHTUMA where tapahtuman_tyyppi = ? and hyvaksytty is not null";
@@ -63,6 +105,19 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		return json;
 	}
 
+	/**
+	 * <p>Metodi <code>haeTietty</code> hakee tiedot tietyst‰ harrastuksesta tietokannasta ja k‰ytt‰‰ HarrastusRowMapperia tehd‰kseen HarrastusImpl-olion niist‰.</p>
+	 * 
+	 * @param tapahtuma_id	Haettavan tapahtuman yksilˆiv‰ tunnus.
+	 * @param sql			Toteutettava sql-lause.
+	 * @param parametrit	Objektilista, johon kootaan haettavan tapahtuman id. 
+	 * @param mappaaja		Harrastuksia k‰sittelev‰ RowMapper, katso lis‰tietoja: @see HarrastusRowMapper.
+	 * @param h				HarrastusImpl-olio, johon tiedot haetaan.
+	 * 
+	 * @return palauttaa HarrastusImpl-olion h.
+	 * 
+	 * */
+	
 	public HarrastusImpl haeTietty(int tapahtumaId) {
 
 		String sql = "select * from TAPAHTUMA where tapahtuma_id = ?";
@@ -77,6 +132,19 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		return h;
 	}
 
+	/**
+	 * <p>Metodi <code>lisaaTapahtuma</code> ottaa vastaan tiedot lis‰tt‰v‰st‰ harrastuksesta ja lis‰‰ ne jdbcTemplatella tietokantaan.</p><br>
+	 * <p>Riippuen onnistumisesta v‰litet‰‰n booleanin arvo eteenp‰in.</p>
+	 * 
+	 * @param h				HarrastusImpl-olio, joka lis‰t‰‰n.
+	 * @param onnistui		Boolean, joka kertoo metodia kutsuvalle, onnistuiko tapahtuma vai ei.
+	 * @param sql			Toteutettava sql-lause.
+	 * @param parametrit	Objektilista, johon kootaan lis‰tt‰v‰n tapahtuman tiedot. 
+	 * 
+	 * @return palauttaa booleanin onnistui joko truena tai falsena.
+	 * 
+	 * */
+	
 	public boolean lisaaTapahtuma(HarrastusImpl h) {
 		
 		boolean onnistui;
@@ -110,7 +178,19 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 			return onnistui;
 	}
 
+
 	/*public void poistaTapahtuma(int tapahtumaId) {
+
+	/**
+	 * <p>Metodi <code>poistaTapahtuma</code> ottaa vastaan poistettavan harrastusolion ja poistaa sen jdbcTemplatella tietokannasta.</p>
+	 * 
+	 * @param h				HarrastusImpl-olio, joka poistetaan.
+	 * @param sql			Toteutettava sql-lause.
+	 * 
+	 * 
+	 * */
+	
+	public void poistaTapahtuma(HarrastusImpl h) {
 		
 		int pois = h.getTapahtumaId();
 		
@@ -120,7 +200,7 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		
 		jdbcTemplate.execute(sql);
 		
-	}*/
+	}
 	
 	
 	public HarrastusImpl poistaTapahtuma(int tapahtumaId) {
@@ -145,8 +225,6 @@ public class HarrastusDAOJdbcImpl implements HarrastusDAO {
 		
 		jdbcTemplate.execute(sql);
 	}
-
-
 	
 
 }

@@ -7,6 +7,14 @@ import org.springframework.jdbc.core.RowMapper;
 
 import sovellus.bean.OsallistujaImpl;
 
+/**
+ * <p>T‰m‰ on OsallistujaDAO:n JdbcTemplatella toteuttava luokka.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * */
+
 public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 
 	//JdbcTemplaten tarvitsemat konstruktorit...
@@ -25,7 +33,16 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 		
 	//---------------------------------------------
 	
-	
+		/**
+		 * <p>Metodi <code>haeKaikki</code> hakee tiedot osallistujista tietokannasta ja k‰ytt‰‰ OsallistujaRowMapperia tehd‰kseen listan heist‰.</p>
+		 * 
+		 * @param sql				Toteutettava sql-lause.
+		 * @param mappaaja			Luo osallistuja-oliot, jotka lis‰t‰‰n listaan.
+		 * @param osallistujat		Lista, johon mappaajan luomat oliot kootaan.
+		 * 
+		 * @return palauttaa listan osallistujista.
+		 * 
+		 * */
 
 	public List<OsallistujaImpl> haeKaikki() {
 		
@@ -37,6 +54,18 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 	}
 
 
+	/**
+	 * <p>Metodi <code>haeTietty</code> hakee tiedot tietyst‰ osallistujasta tietokannasta ja k‰ytt‰‰ OsallistujaRowMapperia luodakseen h‰net.</p>
+	 * 
+	 * @param sql				Toteutettava sql-lause.
+	 * @param parametrit		Objektilista, johon otetaan talteen osallistujan id.
+	 * @param mappaaja			Luo osallistuja-olion, joka palautetaan.
+	 * @param o					Olio, jonka mappaaja luo.
+	 * 
+	 * @return palauttaa OsallistujaImpl-olion o.
+	 * 
+	 * */
+	
 	public OsallistujaImpl haeTietty(int osallistuja_id) {
 		
 		String sql = "select * from OSALLISTUJA where osallistuja_id = ?";
@@ -50,6 +79,17 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 		return o;
 	}
 
+	/**
+	 * <p>Metodi <code>lisaaOsallistuja</code> lis‰‰ uuden osallistuja-olion tiedot tietokantaan</p>
+	 * 
+	 * @param onnistuiko		Boolean, jolla otetaan selville onnistuiko vai ei.
+	 * @param sql				Toteutettava sql-lause.
+	 * @param parametrit		Objektilista, johon otetaan talteen osallistujan tiedot.
+	 * @param o					Olio, jonka mappaaja luo.
+	 * 
+	 * @return palauttaa booleanin, jonka avulla kutsuva taho saa selville onnistuiko kantaan lis‰ys vai ei.
+	 * 
+	 * */
 
 	public boolean lisaaOsallistuja(OsallistujaImpl o) {
 		
@@ -71,6 +111,15 @@ public class OsallistujaDAOJdbcImpl implements OsallistujaDAO {
 		return onnistuiko;
 	}
 
+	/**
+	 * <p>Metodi <code>poistaOsallistuja</code> ottaa vastaan poistettavan osallistujaolion ja poistaa sen jdbcTemplatella tietokannasta k‰ytt‰en osallistujan id:t‰.</p>
+	 * 
+	 * @param pois			Osallistujan tunnus, joka halutaan poistaa.
+	 * @param o				OsallistujaImpl-olio, joka poistetaan.
+	 * @param sql			Toteutettava sql-lause.
+	 * 
+	 * 
+	 * */
 
 	public void poistaOsallistuja(OsallistujaImpl o) {
 		

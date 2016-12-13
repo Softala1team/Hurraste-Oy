@@ -1,8 +1,7 @@
 package sovellus.controller;
 
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;

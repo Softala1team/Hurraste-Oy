@@ -14,6 +14,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * <p>T‰m‰ on Json-k‰‰nt‰j‰, jonka avulla luodaan JSON-objekti sille annetuista tiedoista.</p>
+ * 
+ * @param mapper	jackson-pluginin ObjectMapper, jolla luodaan lista mihin JSON-objektit luodaan.
+ * 
+ * @author kdonald, GitHub
+ * 
+ * */
 
 public class JsonKaantajaRowMapper implements RowMapper<JsonNode> {
 	

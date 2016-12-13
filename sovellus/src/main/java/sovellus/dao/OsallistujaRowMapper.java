@@ -8,9 +8,24 @@ import org.springframework.jdbc.core.RowMapper;
 import sovellus.bean.OsallistujaImpl;
 import sovellus.bean.HarrastusImpl;
 
+/**
+ * <p>T‰m‰ on OsallistujaRowMapper, jonka avulla luodaan osallistuja-olio.</p>
+ * 
+ * @author team
+ * @version 1.0
+ * 
+ * */
+
 public class OsallistujaRowMapper implements RowMapper<OsallistujaImpl>{
 
-
+	/**
+	 * <p><code>mapRow</code> lis‰‰ kaikki saamansa tiedot OsallistujaImpl-olioon ja palauttaa olion lopuksi.</p>
+	 * 
+	 * @param rs		Kannasta saadut tulosrivit.
+	 * @param rowNum	Tulosrivien m‰‰r‰.
+	 * @param h			Luotava osallistuja-olio.
+	 * */
+	
 	public OsallistujaImpl mapRow(ResultSet rs, int rowNumber) throws SQLException {
 		
 				OsallistujaImpl o = new OsallistujaImpl();

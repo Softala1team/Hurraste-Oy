@@ -14,21 +14,44 @@ body {
 background: lightblue;
 }
 </style>
+
+<script>
+
+
+
+</script>
+
 </head>
 <body>
 <div id="header">
+<h3>SUOJATTU PÄÄSIVU</h3>
+<p>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></p>
 </div>
-<h1>SUOJATTU PÄÄSIVU</h1>
 
-<h3>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></h3>
+       <div align="center">
+           <h4>Tapahtumat</h4>
+           
+           <table border="1">
+               <th>No</th>
+               <th>jar_nimi</th>
+               <th>tapahtuma_paikka</th>
+               <c:forEach var="tapahtuma" items="${listTapahtuma}" varStatus="status">
+               <tr>
 
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-<p><a href="admin/tools">Admin tools</a></p>
-</sec:authorize>
+                   <td>${status.index + 1}</td>
 
+                   <td>${tapahtuma.jar_nimi}</td>
 
+                   <td>${tapahtuma.tapahtuma_paikka}</td>
+
+               </tr>
+               </c:forEach>       
+           </table>
+       </div>
+
+<div id="footer">
 <p><a href="/sovellus">Pääsivu</a></p>
-<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p> <!-- href?? -->
-
+<p><a href="../j_spring_security_logout" > Kirjaudu ulos</a></p> <!-- tarvitaanko?? -->
+</div>
 </body>
 </html>

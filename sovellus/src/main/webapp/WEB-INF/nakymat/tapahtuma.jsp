@@ -38,7 +38,7 @@
 	</iframe>-->
 	<p>${harrastus.jar_nimi}</p>
 	<h4 id="jostaynna"></h4>
-	<p>Osallistujia:<br>${osallistujia}/${harrastus.max_osallistujamaara}<br><small><br>${osallistujat}</small></p>
+	<p>Osallistujia:<br>${harrastus.osallistujamaara}/${harrastus.max_osallistujamaara}<br><small><br>${osallistujat}</small></p>
 </div>
 <form:form id="lomake" modelAttribute="osallistuja" method="post" name="osallistuja" style="visibility: hidden;">
 <table id="lomaketable">

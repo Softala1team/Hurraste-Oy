@@ -252,7 +252,7 @@ public class Kontrolleri {
 	 * */
 	
 	//Hae kaikki admin-sivulle
-	@RequestMapping(value="admin/{tapahtuman_tyyppi}", method=RequestMethod.GET)
+	/*@RequestMapping(value="admin/{tapahtuman_tyyppi}", method=RequestMethod.GET)
 	public String haeKaikkiListaan(@PathVariable Model model) {
 		
 		System.out.println("does this happen");
@@ -261,7 +261,7 @@ public class Kontrolleri {
 		model.addAttribute("listTapahtuma", listTapahtuma);
 
 		return "admin";
-	}
+	}*/
 	
 	/**
 	 * <p>Metodi <code>haeKaikki</code> hakee kaikki tapahtumat ja tuo ne json-muodossa jsp:lle.
